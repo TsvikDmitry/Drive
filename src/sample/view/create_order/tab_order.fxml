@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<BorderPane prefHeight="151.0" prefWidth="251.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.view.tabls.AddTabsController">
+    <center>
+        <TabPane fx:id="tabPane">
+
+        </TabPane>
+
+    </center>
+    <bottom>
+        <HBox alignment="center">
+            <Button onAction="#addTab" text="Add tab" />
+            <Button onAction="#listTabs" prefHeight="0.0" prefWidth="77.0" text="List tabs" />
+        </HBox>
+    </bottom>
+</BorderPane>
+

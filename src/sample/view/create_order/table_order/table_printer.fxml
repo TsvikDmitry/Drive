@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="100.0" prefWidth="1143.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.CreateOrder.TableOrder.TableOrderPrinter">
+   <children>
+      <VBox AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+          <children>
+              <TableView fx:id="OrderPrintTable" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+      
+                      <columns>
+                          <TableColumn fx:id="PrintOrderColumnId" prefWidth="36.0" text="ID" />
+                  <TableColumn fx:id="PrintOrderColumnCountPrint2" maxWidth="186.99996948242188" minWidth="6.0" prefWidth="186.99996948242188" text="Принтер">
+                     <columns>
+                        <TableColumn fx:id="PrintOrderColumnNamePrinter" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Название" />
+                        <TableColumn fx:id="PrintOrderColumnNameDuplex" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" text="Дуплекс" />
+                     </columns>
+                  </TableColumn>
+                  <TableColumn fx:id="PrintOrderColumnCountPrint1" maxWidth="229.0" minWidth="6.0" prefWidth="191.0" text="Бумага">
+                     <columns>
+                        <TableColumn fx:id="PrintOrderColumnNameFormat" maxWidth="55.0" minWidth="55.0" prefWidth="55.0" text="Формат" />
+                        <TableColumn fx:id="PrintOrderColumnNamePaper" prefWidth="120.0" text="Бумага" />
+                        <TableColumn fx:id="PrintOrderColumnDensity" maxWidth="45.0" minWidth="45.0" prefWidth="45.0" text="Плот." />
+                     </columns>
+                  </TableColumn>
+                          <TableColumn fx:id="PrintOrderColumnCount" maxWidth="103.0" minWidth="50.0" prefWidth="76.0" text="Кол-во" />
+                          <TableColumn fx:id="PrintOrderColumnNamePrice" maxWidth="80.0" minWidth="50.0" text="Прайс" />
+                  <TableColumn fx:id="PrintOrder" maxWidth="180.0" minWidth="9.0" prefWidth="129.0" text="Розница">
+                     <columns>
+                                <TableColumn fx:id="PrintOrderColumnCostOne" maxWidth="90.0" minWidth="1.0" prefWidth="60.0" text="ед." />
+                                <TableColumn fx:id="PrintOrderColumnCostAll" maxWidth="114.0" minWidth="0.0" prefWidth="58.0" text="общ." />
+                     </columns>
+                  </TableColumn>
+                  <TableColumn fx:id="PrintOrderColumnPrimeCostAll11" maxWidth="200.0" minWidth="9.0" prefWidth="129.0" text="Себестоимость">
+                     <columns>
+                        <TableColumn fx:id="PrintOrderColumnPrimeCostOne" maxWidth="84.0" minWidth="9.0" prefWidth="69.0" text="за одну" />
+                        <TableColumn fx:id="PrintOrderColumnPrimeCostAll" maxWidth="79.0" minWidth="9.0" prefWidth="71.0" text="общая" />
+                     </columns>
+                  </TableColumn>
+                  <TableColumn fx:id="PrintOrderColumnProfit" maxWidth="118.0" minWidth="9.0" prefWidth="108.0" text="Прибыль" />
+                          <TableColumn fx:id="PrintOrderColumnText" maxWidth="600.0" minWidth="200.0" prefWidth="400.0" text="Text" />
+                          <TableColumn fx:id="PrintOrderColumnCountPrint" maxWidth="90.0" minWidth="6.0" prefWidth="58.0" text="Count A4" />
+                      </columns>
+                  </TableView>
+          </children>
+      </VBox>
+   </children>
+</AnchorPane>

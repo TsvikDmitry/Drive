@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="617.0"
+            prefWidth="1011.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.PayOrder.PayOrderController">
+   <children>
+
+   </children>
+    <GridPane>
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="152.0" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="168.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+         <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+         <Label prefHeight="17.0" text="Номер заказа:" GridPane.rowIndex="2">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="IdOrderLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="183.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label alignment="CENTER" minHeight="40.0" minWidth="40.0" prefHeight="41.0" prefWidth="296.0" text="Оплата заказа" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label prefHeight="17.0" text="Сумма заказа:" GridPane.rowIndex="4">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label prefHeight="17.0" text="Статус:" GridPane.rowIndex="3">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="SumOrderLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="183.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="StatusPayLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="183.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label prefHeight="17.0" text="Сумма оплаты:" GridPane.rowIndex="5">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="SumPayLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="183.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label prefHeight="17.0" text="Неоплачено:" GridPane.rowIndex="6">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="DolgLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="183.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+        </children>
+    </GridPane>
+   <GridPane fx:id="PayMentGrid" alignment="TOP_RIGHT" prefHeight="66.0" AnchorPane.topAnchor="200.0">
+      <columnConstraints>
+         <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="188.0" minWidth="140.0" prefWidth="140.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="180.0" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints maxHeight="25.0" minHeight="30.0" prefHeight="17.0" />
+         <RowConstraints minHeight="30.0" />
+         <RowConstraints />
+      </rowConstraints>
+      <children>
+         <ComboBox fx:id="PayMentBox" onAction="#PayMentGrid" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <padding>
+               <Insets top="5.0" />
+            </padding>
+         </ComboBox>
+         <ComboBox fx:id="VariantPayBox" onAction="#PayMentGrid" prefWidth="150.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+            <padding>
+               <Insets top="5.0" />
+            </padding>
+         </ComboBox>
+         <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="30.0" prefWidth="145.0" text="Метод оплаты:" textAlignment="RIGHT" GridPane.rowIndex="1">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label prefHeight="17.0" text="Способ оплаты:">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+      </children>
+   </GridPane>
+   <GridPane fx:id="DataGrid" visible="false" AnchorPane.topAnchor="280.0">
+      <columnConstraints>
+         <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="152.0" minWidth="10.0" prefWidth="118.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="182.0" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+         <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+      <children>
+         <Label prefHeight="30.0" prefWidth="103.0" text="Дата оплаты:" GridPane.rowIndex="1">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="DataPayLabel" alignment="CENTER" prefHeight="30.0" prefWidth="193.0" text="02-03-2017 17:00" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Label>
+      </children>
+   </GridPane>
+   <GridPane fx:id="MoneyGrid" focusTraversable="true" prefHeight="169.0" prefWidth="298.0" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="270.0">
+      <columnConstraints>
+         <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="152.0" minWidth="10.0" prefWidth="140.0" />
+         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="159.0" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="ALWAYS" />
+         <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="ALWAYS" />
+         <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="28.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+      <children>
+         <Label fx:id="LableMoney1" prefHeight="17.0" text="Сумма предоплаты:" GridPane.rowIndex="2">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <TextField fx:id="SumPayFieldMoney" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <GridPane.margin>
+               <Insets left="5.0" right="5.0" />
+            </GridPane.margin>
+         </TextField>
+         <Label fx:id="LableMoney2" prefHeight="17.0" text="Сдача:" GridPane.rowIndex="3">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="DolgLableMoney" alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="150.0" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Label>
+         <Label prefHeight="17.0" text="Сумма к оплате:" GridPane.rowIndex="1">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="DolgLabelMoney" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="183.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="ErrorLableMoney" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="263.0" text="" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="5">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <GridPane.margin>
+               <Insets left="15.0" right="15.0" />
+            </GridPane.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+         <Button fx:id="addPayMoney" mnemonicParsing="false" onAction="#addPayMoney" prefHeight="25.0" prefWidth="112.0" text="Добавить оплату" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+       <Button mnemonicParsing="false" onAction="#CloseForm" prefHeight="25.0" prefWidth="103.0" text="Закрыть " GridPane.rowIndex="4" />
+      </children>
+   </GridPane>
+   <GridPane fx:id="CardGrid" prefHeight="180.0" prefWidth="300.0" AnchorPane.topAnchor="270.0">
+      <columnConstraints>
+         <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="152.0" minWidth="10.0" prefWidth="142.0" />
+         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="158.0" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints maxHeight="55.0" minHeight="30.0" prefHeight="55.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="55.0" minHeight="30.0" prefHeight="55.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="55.0" minHeight="30.0" prefHeight="55.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="55.0" minHeight="30.0" prefHeight="55.0" vgrow="SOMETIMES" />
+         <RowConstraints />
+         <RowConstraints maxHeight="42.0" minHeight="45.0" prefHeight="42.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="25.0" minHeight="30.0" prefHeight="18.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="55.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+      <children>
+         <Label fx:id="LableCard1" prefHeight="17.0" text="Сумма предоплаты:" GridPane.rowIndex="7">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <TextField fx:id="SumPayFieldCard" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <GridPane.margin>
+               <Insets left="5.0" right="5.0" />
+            </GridPane.margin>
+         </TextField>
+         <Label fx:id="LableCard2" prefHeight="17.0" text="Задолженность:" GridPane.rowIndex="8">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="DolgLableCard" alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="177.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Label>
+         <Label prefHeight="17.0" text="Сумма оплаты:" GridPane.rowIndex="6">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="DolgLabelCard" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="183.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <Label prefHeight="30.0" text="Дата зачисления:" GridPane.rowIndex="2">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label prefHeight="41.0" text="ФИО отправителя:" GridPane.rowIndex="5">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <children>
+               <DatePicker fx:id="DataGetCard" prefHeight="25.0" />
+            </children>
+         </VBox>
+         <TextArea fx:id="FioFieald" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <GridPane.margin>
+               <Insets bottom="5.0" top="5.0" />
+            </GridPane.margin>
+         </TextArea>
+         <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <children>
+               <ComboBox fx:id="CardHourBox" editable="true" minWidth="55.0" prefHeight="25.0" promptText="Час" />
+               <ComboBox fx:id="CardMinuteBox" editable="true" minWidth="55.0" prefHeight="25.0" promptText="Минуты" />
+            </children>
+         </HBox>
+         <Label prefHeight="30.0" text="Время зачисления:" GridPane.rowIndex="3">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Button fx:id="addPayCard" mnemonicParsing="false" onAction="#addPayCard" prefHeight="25.0" prefWidth="112.0" text="Добавить оплату" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+         <Button mnemonicParsing="false" onAction="#CloseForm" prefHeight="25.0" prefWidth="103.0" text="Закрыть " GridPane.rowIndex="9" />
+         <Label fx:id="ErrorLableCard" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="261.0" text="" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="10">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+            <GridPane.margin>
+               <Insets left="15.0" right="15.0" />
+            </GridPane.margin>
+         </Label>
+         <Label prefHeight="30.0" text="Номер карты/счета:">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label prefHeight="30.0" text="ФИО владельца:" GridPane.rowIndex="1">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="NamberCardPayLabel" prefHeight="30.0" GridPane.columnIndex="1">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="FioCardPayLabel" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+      </children>
+   </GridPane>
+   <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+          <TableView fx:id="PayTable" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+              <columns>
+                  <TableColumn fx:id="PayColumnIdOrder" minWidth="3.0" prefWidth="60.0" text="№" />
+                  <TableColumn fx:id="PayColumnDataPay" minWidth="115.0" prefWidth="115.0" text="Дата оплаты" />
+                  <TableColumn fx:id="PayColumnSumPay" minWidth="50.0" prefWidth="52.0" text="Сумма" />
+                  <TableColumn fx:id="PayColumnNamePayMent" minWidth="115.0" prefWidth="110.0" text="Способ оплаты" />
+                  <TableColumn fx:id="PayColumnDataGet" minWidth="115.0" prefWidth="110.0" text="Зачисленно" />
+               <TableColumn fx:id="PayColumnNamberCard" minWidth="115.0" prefWidth="118.0" text="Номер счета" />
+               <TableColumn fx:id="PayColumnTextPay" minWidth="120.0" prefWidth="104.0" text="Доп инфо." />
+              </columns>
+          </TableView>
+         <ButtonBar prefHeight="40.0" prefWidth="200.0">
+           <buttons>
+             <Button mnemonicParsing="false" onAction="#DeletePay" text="Удалить оплату" />
+           </buttons>
+         </ButtonBar>
+      </children>
+   </VBox>
+</AnchorPane>

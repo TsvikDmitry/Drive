@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<Pane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.CreateOrder.CreateOrderController">
+   <children>
+      <AnchorPane cacheShape="false" centerShape="false" pickOnBounds="false" prefHeight="802.0" prefWidth="809.0" scaleShape="false">
+          <children>
+              <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                      <HBox>
+                          <children>
+                              <VBox prefHeight="800.0" prefWidth="203.0">
+                                  <children>
+                                      <TabPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <tabs>
+                                              <Tab closable="false" text="Данные заказа">
+
+
+
+                                        </Tab>
+                  
+                                          </tabs>
+                                      </TabPane>
+                                  </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <VBox>
+                                  <children>
+                                      <TabPane prefHeight="643.0" prefWidth="675.0">
+                                          <tabs>
+                                              <Tab closable="false" text="Принтер">
+                                                  <content>
+                                                      <fx:include fx:id="orderCreatePrinter" source="../create_order/set_order/printer.fxml" />
+                                                  </content>
+                                              </Tab>
+                                          </tabs>
+                                      </TabPane>
+                                      <Separator prefWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Separator>
+                              <VBox>
+                                 <children>
+                                    <HBox prefHeight="23.0" prefWidth="590.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#ButtonOrderPrintAdd" prefHeight="25.0" prefWidth="91.0" text="Добавить">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#DeleteTableItemPrinter" prefHeight="25.0" prefWidth="91.0" text="Удалить">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#ButtonOrderPrintEdit" prefHeight="25.0" prefWidth="95.0" text="Сохранить">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#ButtonOrderPrintCancel" prefHeight="25.0" prefWidth="91.0" text="Отменить ">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <Separator prefWidth="200.0" />
+                                      <TabPane>
+                                          <tabs>
+                                              <Tab closable="false" text="Текущий заказ">
+                                                  <content>
+                                                      <fx:include fx:id="TabtableAll" source="../create_order/table_order/table_printer.fxml" />
+                                                  </content>
+                                              </Tab>
+                                          </tabs>
+                                      </TabPane>
+                                  </children>
+                              </VBox>
+                          </children>
+                      </HBox>
+                  </children>
+              </VBox>
+          </children>
+      </AnchorPane>
+   </children>
+</Pane>

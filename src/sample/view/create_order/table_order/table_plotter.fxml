@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="100.0" prefWidth="1143.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.CreateOrder.TableOrder.TableOrderPlotter">
+   <children>
+      <VBox AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+          <children>
+              <TableView fx:id="OrderPlotterTable" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+
+                  <columns>
+                      <TableColumn fx:id="PlotterOrderColumnId" prefWidth="36.0" text="ID" />
+                      <TableColumn maxWidth="186.99996948242188" minWidth="6.0" prefWidth="186.99996948242188" text="Принтер">
+                          <columns>
+                              <TableColumn fx:id="PlotterOrderColumnNamePlotter" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Название" />
+                              <TableColumn fx:id="PlotterOrderColumnFill" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" text="Заливка" />
+                          </columns>
+                      </TableColumn>
+                      <TableColumn maxWidth="356.0" minWidth="285.0" prefWidth="444.0" text="Бумага">
+                          <columns>
+                              <TableColumn fx:id="PlotterOrderColumnNamePaper" prefWidth="150.0" text="Бумага" />
+                              <TableColumn fx:id="PlotterOrderColumnDensity" maxWidth="45.0" minWidth="45.0" prefWidth="55.0" text="Плот." />
+                              <TableColumn fx:id="PlotterOrderColumnWidth" maxWidth="65.0" minWidth="45.0" prefWidth="55.0" text="Ширина" />
+                              <TableColumn fx:id="PlotterOrderColumnLength" maxWidth="60.0" minWidth="31.0" prefWidth="55.0" text="Длина" />
+                              <TableColumn fx:id="PlotterOrderColumnArea" maxWidth="65.0" minWidth="31.0" prefWidth="60.0" text="Площадь" />
+                          </columns>
+                      </TableColumn>
+                      <TableColumn fx:id="PlotterOrderColumnCount" maxWidth="118.0" minWidth="0.0" prefWidth="81.0" text="Кол-во" />
+                      <TableColumn fx:id="PlotterOrder" maxWidth="180.0" minWidth="9.0" prefWidth="38.0" text="Розница">
+                          <columns>
+                        <TableColumn fx:id="PlotterOrderColumnCostMeter" maxWidth="240.0" minWidth="9.0" prefWidth="73.0" text="Цена кв.м." />
+                              <TableColumn fx:id="PlotterOrderColumnSumOne" maxWidth="130.0" minWidth="1.0" prefWidth="69.0" text="ед." />
+                              <TableColumn fx:id="PlotterOrderColumnSumAll" maxWidth="126.0" minWidth="0.0" prefWidth="71.0" text="общ." />
+                          </columns>
+                      </TableColumn>
+                      <TableColumn maxWidth="200.0" minWidth="9.0" prefWidth="129.0" text="Себестоимость">
+                          <columns>
+                              <TableColumn fx:id="PlotterOrderColumnPrimeCostSumOne" maxWidth="84.0" minWidth="9.0" prefWidth="69.0" text="ед." />
+                              <TableColumn fx:id="PlotterOrderColumnPrimeCostSumAll" maxWidth="79.0" minWidth="9.0" prefWidth="71.0" text="общ." />
+                          </columns>
+                      </TableColumn>
+                      <TableColumn fx:id="PlotterOrderColumnProfit" maxWidth="240.0" minWidth="9.0" prefWidth="150.0" text="Прибыль" />
+                      <TableColumn fx:id="PlotterOrderColumnText" maxWidth="600.0" minWidth="200.0" prefWidth="358.0" text="Text" />
+                  </columns>
+              </TableView>
+          </children>
+      </VBox>
+   </children>
+</AnchorPane>

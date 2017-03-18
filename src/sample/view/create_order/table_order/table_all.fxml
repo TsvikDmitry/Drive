@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="100.0" prefWidth="1143.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.controller.CreateOrder.TableOrder.TableOrderAll">
+    <children>
+        <VBox AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <children>
+              <TableView fx:id="OrderAllTable" VBox.vgrow="ALWAYS">
+      
+                      <columns>
+                          <TableColumn fx:id="PrintAllColumnId" maxWidth="80.0" minWidth="50.0" prefWidth="50.0" text="ID" />
+                          <TableColumn fx:id="PrintAllColumnText" maxWidth="250.0" minWidth="150.0" prefWidth="180.0" text="Название" />
+                          <TableColumn fx:id="PrintAllColumnNameFormat" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="Формат" />
+                          <TableColumn fx:id="PrintAllColumnCount" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="Кол-во" />
+                          <TableColumn fx:id="PrintAllColumnCostOne" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="Цена ед." />
+                          <TableColumn fx:id="PrintAllColumnCostAll" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="Цена" />
+                          <TableColumn fx:id="PrintAllColumnText2" maxWidth="299.0" minWidth="150.0" prefWidth="299.0" text="Описание" />
+
+                      </columns>
+                  </TableView>
+          </children>
+      </VBox>
+   </children>
+</AnchorPane>

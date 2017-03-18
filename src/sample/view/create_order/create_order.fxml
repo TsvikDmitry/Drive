@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="createOrderView" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.CreateOrder.CreateOrderController">
+   <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
+      <children>
+      
+      <HBox maxHeight="500.0" prefHeight="500.0" prefWidth="1131.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox minWidth="350.0" prefWidth="300.0">
+                  <children>
+                      <fx:include fx:id="dataOrderView" source="data_order/data_order.fxml" />
+                  </children>
+            </VBox>
+               <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox alignment="TOP_CENTER" minHeight="600.0" minWidth="700.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <TabPane fx:id="TabOrder" prefHeight="602.0" prefWidth="781.0" VBox.vgrow="ALWAYS">
+                     <tabs>
+                         <Tab closable="false" text="Плоттер" fx:id="TabPlotter">
+                             <content>
+                                 <fx:include fx:id="orderCreatePlotter" source="set_order/plotter.fxml" />
+                             </content>
+                         </Tab>
+                        <Tab closable="false" text="Принтер" fx:id="TabPrinter">
+                           <content>
+                               <fx:include fx:id="orderCreatePrinter" source="set_order/printer.fxml" />
+                           </content>
+                        </Tab>
+                         <Tab closable="false" text="Брошуровка" fx:id="TabPrinter">
+                             <content>
+                                 <fx:include fx:id="orderCreateBinding" source="set_order/binding.fxml" />
+                             </content>
+                         </Tab>
+                         <Tab closable="false" text="Услуги/Товары" fx:id="TabPrinter">
+                             <content>
+                                 <fx:include fx:id="orderCreateService" source="set_order/service.fxml" />
+                             </content>
+                         </Tab>
+                     </tabs>
+                  </TabPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+         <Separator />
+         <HBox alignment="CENTER">
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+            <children>
+          <Button minHeight="30.0" minWidth="100.0" mnemonicParsing="false" onAction="#ButtonOrderPrintAdd" text="Добавить в заказ">
+                  <HBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </HBox.margin>
+               </Button>
+
+            </children>
+         </HBox>
+         <Separator VBox.vgrow="ALWAYS" />
+         <HBox minHeight="300.0" VBox.vgrow="ALWAYS">
+            <children>
+             <TabPane HBox.hgrow="ALWAYS">
+                 <tabs>
+                     <Tab closable="false" text="Все заказы">
+                         <content>
+                             <fx:include fx:id="tableAllView" source="table_order/table_all.fxml" />
+                         </content>
+                     </Tab>
+                     <Tab closable="false" text="Принтеры">
+                         <content>
+                             <fx:include fx:id="tablePrinterView" source="table_order/table_printer.fxml" />
+                         </content>
+                     </Tab>
+                     <Tab closable="false" text="Плоттер">
+                         <content>
+                             <fx:include fx:id="tablePlotterView" source="table_order/table_plotter.fxml" />
+                         </content>
+                     </Tab>
+                     <Tab closable="false" text="Брошюровка">
+                         <content>
+                             <fx:include fx:id="tableBindingView" source="table_order/table_binding.fxml" />
+                         </content>
+                     </Tab>
+                     <Tab closable="false" text="Услоги/Товары">
+                         <content>
+                             <fx:include fx:id="tableServiceView" source="table_order/table_plotter.fxml" />
+                         </content>
+                     </Tab>
+                 </tabs>
+             </TabPane>
+            </children>
+         </HBox>
+      </children>
+   </VBox>
+</AnchorPane>

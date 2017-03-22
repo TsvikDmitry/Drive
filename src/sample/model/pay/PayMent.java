@@ -16,7 +16,6 @@ public class PayMent {
         this.visible = new SimpleBooleanProperty();
         this.fioPeople = new SimpleStringProperty();
 
-
     }
 
     private IntegerProperty idPayment;

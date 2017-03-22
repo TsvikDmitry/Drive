@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Statisic.Deal.DealTableController">
+
+    <children>
+          <TableView fx:id="TableDealOrder" prefHeight="589.0" prefWidth="562.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+              <columns>
+                  <TableColumn fx:id="NamePeopleColumn" maxWidth="400.0" minWidth="60.0" text="Менеджер" />
+                  <TableColumn fx:id="DataColumn" maxWidth="400.0" minWidth="60.0" text="Дата" />
+                  <TableColumn fx:id="NameDealColumn" maxWidth="400.0" minWidth="60.0" text="Операция" />
+                  <TableColumn fx:id="NameDealGroupColumn" maxWidth="400.0" minWidth="60.0" text="Категория" />
+                  <TableColumn fx:id="NameOrderDealColumn" maxWidth="400.0" minWidth="60.0" text="Описание " />
+                  <TableColumn fx:id="NamePayColumn" maxWidth="400.0" minWidth="60.0" text="Метод платежа" />
+                  <TableColumn fx:id="SumPayColumn" maxWidth="400.0" minWidth="60.0" text="Сумма" />
+
+              </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+          </TableView>
+    </children>
+</AnchorPane>

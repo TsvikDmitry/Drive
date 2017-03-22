@@ -4,12 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import sample.Main;
-import sample.controller.OrderList.OrderListController;
-
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-
-import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 
 /**
  * Created by Dima on 22.01.2017.
@@ -46,9 +40,22 @@ public class MainController {
 
 
     public void NewOrder(ActionEvent actionEvent) {
-        System.out.println(" MainController  NewOrder");
-        mainApp.show1();
+      //  System.out.println(" MainController  NewOrder");
+        //mainApp.show1();
     }
 
 
+    public void PrintCount(ActionEvent actionEvent) {
+      //  System.out.println(" MainController  PrintCount");
+        mainApp.PrintCountForma();
+    }
+
+    public void StatisticToday(ActionEvent actionEvent) {
+        //  System.out.println(" MainController  PrintCount");
+        mainApp.StatisticToday();
+    }
+
+    public void Deal(ActionEvent actionEvent) {
+        mainApp.Deal();
+    }
 }

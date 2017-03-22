@@ -4,9 +4,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import sample.controller.CreateOrder.SetOrder.PrinterController;
-import sample.model.plotter.order.OrderPlotter;
-import sample.model.plotter.order.OrderPlotterDB;
+import sample.controller.CreateOrder.TabOrder.PrinterController;
+import sample.model.create_order.plotter.order.OrderPlotter;
+import sample.model.create_order.plotter.order.OrderPlotterDB;
 
 /**
  * Created by Dima on 19.02.2017.
@@ -43,11 +43,16 @@ public class TableOrderPlotter {
     private void initialize() throws Exception {
 
         OrderPlotter();
-        OrderPlotterUpdata(idOrder);
-
-
+       // UpdateTableData(idOrder);
+        ColumnVisible(false);
     }
 
+    public void ColumnVisible(boolean status){
+        PlotterOrderColumnPrimeCostSumOne.setVisible(status);
+        PlotterOrderColumnPrimeCostSumAll.setVisible(status);
+        PlotterOrderColumnProfit.setVisible(status);
+
+    }
 
 /*
             orderPlotter.setArea(result.getFloat("area"));
@@ -82,7 +87,7 @@ public class TableOrderPlotter {
     }
 
 
-    public  void OrderPlotterUpdata(Integer idOrder) {
+    public  void UpdateTableData(Integer idOrder) {
         //Get all Employees information
         ObservableList<OrderPlotter> orderPrintTableList = null;
         try {
@@ -137,7 +142,6 @@ public class TableOrderPlotter {
 
     public Integer getWidth() {
         return OrderPlotterTable.getSelectionModel().getSelectedItem().getWidth();
-
     }
 
 

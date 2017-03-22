@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="createOrderView" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.CreateOrder.CreateOrderController">
+   <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
+      <children>
+      
+      <HBox prefWidth="1131.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox maxWidth="350.0" minWidth="350.0" prefHeight="400.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
+                  <children>
+                      <fx:include fx:id="dataOrderView" source="data_order/data_order.fxml" />
+                  </children>
+            </VBox>
+               <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox alignment="TOP_CENTER" minHeight="300.0" prefHeight="300.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <TabPane fx:id="TabOrder" onMouseClicked="#TabOrder" prefHeight="602.0" prefWidth="781.0" VBox.vgrow="ALWAYS">
+                     <tabs>
+                        <Tab fx:id="TabPrinter" closable="false" text="Принтер">
+                           <content>
+                               <fx:include fx:id="orderCreatePrinter" source="tab_order/printer.fxml" />
+                           </content>
+                        </Tab>
+                         <Tab fx:id="TabPlotter" closable="false" text="Плоттер">
+                             <content>
+                                 <fx:include fx:id="orderCreatePlotter" source="tab_order/plotter.fxml" />
+                             </content>
+                         </Tab>
+                         <Tab fx:id="TabBinding" closable="false" text="Брошуровка">
+                             <content>
+                                 <fx:include fx:id="orderCreateBinding" source="tab_order/binding.fxml" />
+                             </content>
+                         </Tab>
+                         <Tab fx:id="TabService" closable="false" text="Услуги">
+                             <content>
+                                 <fx:include fx:id="orderCreateService" source="tab_order/service.fxml" />
+                             </content>
+                         </Tab>
+                         <Tab fx:id="TabCreate" closable="false" text="Товары">
+                             <content>
+                                 <fx:include fx:id="orderCreateProduct" source="tab_order/product.fxml" />
+                             </content>
+                         </Tab>
+                     </tabs>
+                  </TabPane>
+                     <Separator />
+                     <HBox minHeight="45.0" prefHeight="45.0" prefWidth="775.0" VBox.vgrow="ALWAYS">
+                        <VBox.margin>
+                           <Insets />
+                        </VBox.margin>
+                        <children>
+                      <Button minHeight="30.0" minWidth="100.0" mnemonicParsing="false" onAction="#ButtonOrderPrintAdd" text="Добавить в заказ">
+                              <HBox.margin>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </HBox.margin>
+                           </Button>
+                           <CheckBox fx:id="cbExpertMode" mnemonicParsing="false" onAction="#VisiblePrimeCostColumn" prefHeight="40.0" prefWidth="115.0" text="Режим эксперта" />
+            
+                        </children>
+                     </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+         <Separator VBox.vgrow="ALWAYS" />
+         <HBox minHeight="150.0" prefHeight="300.0" VBox.vgrow="ALWAYS">
+            <children>
+             <TabPane fx:id="TabTableOrder" onMouseClicked="#TabTableOrder" HBox.hgrow="ALWAYS">
+                 <tabs>
+                     <Tab closable="false" text="Все заказы">
+                         <content>
+                             <fx:include fx:id="tableAllView" source="table_order/table_all.fxml" />
+                         </content>
+                     </Tab>
+                     <Tab closable="false" text="Принтеры">
+                         <content>
+                             <fx:include fx:id="tablePrinterView" source="table_order/table_printer.fxml" />
+                         </content>
+                     </Tab>
+                     <Tab closable="false" text="Плоттер">
+                         <content>
+                             <fx:include fx:id="tablePlotterView" source="table_order/table_plotter.fxml" />
+                         </content>
+                     </Tab>
+                     <Tab closable="false" text="Брошюровка">
+                         <content>
+                             <fx:include fx:id="tableBindingView" source="table_order/table_binding.fxml" />
+                         </content>
+                     </Tab>
+                     <Tab closable="false" text="Услоги">
+                         <content>
+                             <fx:include fx:id="tableServiceView" source="table_order/table_service.fxml" />
+                         </content>
+                     </Tab>
+                     <Tab closable="false" text="Услоги/Товары">
+                         <content>
+                             <fx:include fx:id="tableProductView" source="table_order/table_product.fxml" />
+                         </content>
+                     </Tab>
+                 </tabs>
+             </TabPane>
+            </children>
+         </HBox>
+      </children>
+   </VBox>
+</AnchorPane>

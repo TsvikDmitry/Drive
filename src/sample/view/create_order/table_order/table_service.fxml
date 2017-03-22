@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="100.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.controller.CreateOrder.TableOrder.TableOrderService">
+    <children>
+        <VBox AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <children>
+                <TableView fx:id="OrderServiceTable" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+
+                    <columns>
+                        <TableColumn fx:id="ServiceOrderColumnId" prefWidth="36.0" text="ID" />
+
+
+                                <TableColumn fx:id="ServiceOrderColumnNameService" maxWidth="550.0" minWidth="103.0" prefWidth="130.0" text="Группа" />
+                                <TableColumn fx:id="ServiceOrderColumnNameServiceItems" maxWidth="550.0" minWidth="60.0" prefWidth="120.0" text="Название" />
+
+
+                        <TableColumn fx:id="ServiceOrderColumnCount" maxWidth="131.0" minWidth="20.0" prefWidth="74.0" text="Кол-во" />
+
+                 <TableColumn  maxWidth="180.0" minWidth="9.0" prefWidth="102.0" text="Цена">
+                            <columns>
+                                <TableColumn fx:id="ServiceOrderColumnCostOne" maxWidth="90.0" minWidth="1.0" prefWidth="60.0" text="ед." />
+                                <TableColumn fx:id="ServiceOrderColumnCostAll" maxWidth="114.0" minWidth="0.0" prefWidth="58.0" text="общая" />
+                            </columns>
+                        </TableColumn>
+
+                <TableColumn  maxWidth="200.0" minWidth="9.0" prefWidth="129.0" text="Цена закупки">
+                            <columns>
+                                <TableColumn fx:id="ServiceOrderColumnPrimeCostOne" maxWidth="84.0" minWidth="9.0" prefWidth="69.0" text="ед." />
+                                <TableColumn fx:id="ServiceOrderColumnPrimeCostAll" maxWidth="79.0" minWidth="9.0" prefWidth="71.0" text="общая" />
+                            </columns>
+                        </TableColumn>
+                        <TableColumn fx:id="ServiceOrderColumnProfit" maxWidth="118.0" minWidth="9.0" prefWidth="108.0" text="Прибыль" />
+                        <TableColumn fx:id="ServiceOrderColumnTextDesc" maxWidth="600.0" minWidth="200.0" prefWidth="326.0" text="Text" />
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -9,19 +9,16 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.controller.CreateOrder.CreateOrderController;
 import sample.controller.PayOrder.PayOrderController;
-import sample.database.ConnectionDB;
-import sample.view.tabls.AddTabsController;
+import sample.controller.Statisic.Today.StatisticDayController;
+import sample.controller.convection.Timer;
 
-import java.awt.event.KeyEvent;
 import java.io.IOException;
-
-import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 
 public class Main extends Application {
 
     //This is our PrimaryStage (It contains everything)
     public Stage primaryMain;
-
+    public Stage stageOrder;
     //This is the BorderPane of RootLayout
     private BorderPane rootMain;
 
@@ -30,46 +27,15 @@ public class Main extends Application {
         this.primaryMain = primaryStage;
         this.primaryMain.setTitle("Copy Drive project.");
 
-        //главная активити
+        Long start = Timer.TimeStart();
         showMainLayout();
-
-        //активити которое встаивается во внутрь
-        //showOrderController();
         showOrderController();
-        // showPersonEditDialog();
-        java.sql.Connection con = ConnectionDB.getInstance().getConnection();
 
 
-        addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                formKeyPressed(evt);
-                System.out.println("formKeyPressed(evt) ");
-            }
-        });
+
+        Timer.TimeFinish(getClass().getName(),start);
+
     }
-
-    private void formKeyPressed(java.awt.event.KeyEvent evt) {
-        System.out.println("formKeyPressed(evt) - formKeyPressed");
-
-        switch (evt.getKeyCode()) {
-
-            case KeyEvent.VK_BACK_SPACE:
-                System.out.println("formKeyPressed(evt) VK_BACK_SPACE");
-
-                break;
-            case KeyEvent.VK_ENTER: //Нажата клавиша Enter
-                System.out.println("formKeyPressed(evt) VK_ENTER");
-
-                break;
-            case KeyEvent.VK_ESCAPE: //Нажата клавиша Enter
-                System.out.println("formKeyPressed(evt) VK_ESCAPE");
-
-                break;
-            default:
-        }
-    }
-
-
 
 
     private void showMainLayout() {
@@ -90,21 +56,27 @@ public class Main extends Application {
 
 
 
-    public void showAddItemsOrder(Integer id) {
+    public void showCreadOrders(Integer id) {
         try {
+            Long start = Timer.TimeStart();
+           // System.out.println( ""+System.currentTimeMillis());
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/create_order/create_order.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Edit Person");
-            dialogStage.initModality(Modality.NONE);
-            dialogStage.initOwner(primaryMain);
+            stageOrder = new Stage();
+            stageOrder.setTitle("Заказ № "+id);
+            stageOrder.initModality(Modality.NONE);
+            stageOrder.initOwner(primaryMain);
             Scene scene = new Scene(page);
-            dialogStage.setScene(scene);
+            stageOrder.setScene(scene);
             CreateOrderController controller = loader.getController();
             controller.onCreate(id);
-            dialogStage.showAndWait();
+            //controller.FileCreat(id);
+            controller.setClose(stageOrder);
+            Timer.TimeFinish(getClass().getName(),start);
+            stageOrder.showAndWait();
 
 
         } catch (IOException e) {
@@ -128,6 +100,7 @@ public class Main extends Application {
             dialogStage.setScene(scene);
             PayOrderController controller = loader.getController();
             controller.onCreate(id);
+            controller.setClose(dialogStage);
             dialogStage.showAndWait();
 
 
@@ -141,9 +114,7 @@ public class Main extends Application {
     private void showOrderController() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/orderList/order_list.fxml"));
-            //loader.setLocation(Main.class.getResource("view/orderCreate/order_create.fxml"));
-
+            loader.setLocation(Main.class.getResource("view/order_list.fxml"));
             AnchorPane ordersView = (AnchorPane) loader.load();
             rootMain.setCenter(ordersView);
         } catch (IOException e) {
@@ -151,31 +122,19 @@ public class Main extends Application {
         }
     }
 
-    private void showOrderController2() {
+    public  void PrintCountForma() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/TabsExample.fxml"));
-
-            AnchorPane ordersView = (AnchorPane) loader.load();
-            rootMain.setCenter(ordersView);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public  void show1() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/tabls/TabsExample.fxml"));
+            loader.setLocation(Main.class.getResource("view/statistic/сounter_printer/print_counter_allday.fxml"));
 
             AnchorPane page = (AnchorPane) loader.load();
 
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Оплата заказа: id");
-            dialogStage.initModality(Modality.NONE);
+            dialogStage.setTitle("Статистика копий печати");
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
             dialogStage.initOwner(primaryMain);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
-            AddTabsController controller = loader.getController();
             dialogStage.showAndWait();
 
 
@@ -185,6 +144,34 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
+
+
+    public  void StatisticToday() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/statistic/today_main.fxml"));
+
+            AnchorPane page = (AnchorPane) loader.load();
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Статистика за день");
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+            dialogStage.initOwner(primaryMain);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+            dialogStage.showAndWait();
+            StatisticDayController controller = loader.getController();
+            controller.setClose(dialogStage);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public Stage getPrimaryStage() {
         return primaryMain;
     }
@@ -194,11 +181,26 @@ public class Main extends Application {
     }
 
 
+    public void Deal() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/statistic/deal/deal_allday.fxml"));
 
-    public void keyHandler(KeyEvent keyEvent) {
-    }
+            AnchorPane page = (AnchorPane) loader.load();
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Статистика за день");
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+            dialogStage.initOwner(primaryMain);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+            dialogStage.showAndWait();
 
 
-    public void jjjlh(KeyEvent keyEvent) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

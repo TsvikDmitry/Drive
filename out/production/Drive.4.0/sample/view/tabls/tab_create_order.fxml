@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Tab?>
+
+<Tab  text="Untitled Tab 2" fx:controller="sample.view.tabls.Tab1fooController"  xmlns:fx="http://javafx.com/fxml/1">
+        <fx:include fx:id="PanOrderView" source="../create_order/create_order.fxml" />
+</Tab>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="217.0" prefWidth="589.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="OrderPrintTable" prefHeight="207.0" prefWidth="570.0">
+         <columns>
+            <TableColumn fx:id="PrintOrderColumnId" prefWidth="21.0" text="ID" />
+            <TableColumn fx:id="PrintOrderColumnText" prefWidth="257.0" text="Text" />
+            <TableColumn fx:id="PrintOrderColumnCount" prefWidth="51.0" text="Кол-во" />
+            <TableColumn fx:id="PrintOrderColumnPrice" prefWidth="98.0" text="Прайс" />
+            <TableColumn fx:id="PrintOrderColumnCostOne" prefWidth="60.0" text="Цена ед." />
+            <TableColumn fx:id="PrintOrderColumnCostAll" minWidth="9.0" prefWidth="76.0" text="Цена" />
+            <TableColumn fx:id="PrintOrderColumnCountPrint" minWidth="6.0" prefWidth="6.0" text="Count A4" />
+         </columns>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </TableView>
+   </children>
+</VBox>

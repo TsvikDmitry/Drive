@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Drive.4.0">
+    <output-path>$PROJECT_DIR$/out/artifacts/Drive_4_0</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="sample.Main" />
+        <option name="description" value="" />
+        <option name="height" value="800" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="nativeBundle" value="exe" />
+        <option name="title" value="Copy Drive" />
+        <option name="vendor" value="xxx" />
+        <option name="version" value="2.0" />
+        <option name="width" value="1000" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Drive_4_0.jar">
+        <element id="module-output" name="Drive.4.0" />
+        <element id="library" level="project" name="mysql-connector-java-5.1.40-bin" />
+      </element>
+    </root>
+  </artifact>
+</component>

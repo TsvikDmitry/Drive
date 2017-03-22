@@ -1,5 +1,6 @@
 package sample.controller.PayOrder;
 
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,23 +9,23 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 import javafx.util.converter.DoubleStringConverter;
-import sample.convection.Calendar;
-import sample.convection.ComboBoxDate;
-import sample.convection.ToDate;
-import sample.model.orders.OrderList;
-import sample.model.orders.OrderListDB;
+import sample.controller.convection.Calendar;
+import sample.controller.convection.ComboBoxDate;
+import sample.controller.convection.List;
+import sample.controller.convection.ToDate;
+import sample.model.list_order.orders.OrderList;
+import sample.model.list_order.orders.OrderListDB;
 import sample.model.pay.PayMent;
-import sample.model.pay.PayMentDB;
 import sample.model.pay.PayOrder;
 import sample.model.pay.PayOrderDB;
 
 import java.time.LocalDate;
 import java.util.regex.Pattern;
 
-/**
- * Created by Dima on 01.03.2017.
- */
+
 public class PayOrderController {
 
     @FXML  public TableView<PayOrder> PayTable;
@@ -75,7 +76,6 @@ public class PayOrderController {
     //Card
     @FXML private GridPane CardGrid;
     @FXML private DatePicker DataGetCard;
-    private Calendar DataCreate;
     @FXML private ComboBox CardHourBox;
     @FXML private ComboBox CardMinuteBox;
     @FXML private TextArea FioFieald;
@@ -83,21 +83,23 @@ public class PayOrderController {
     @FXML private Label DolgLableCard;
     @FXML private Label NamberCardPayLabel;
     @FXML private Label FioCardPayLabel;
-
-
-
-
     @FXML private Label LableCard1;
     @FXML private Label LableCard2;
+    Stage stagePay;
+
     @FXML
     private void initialize() throws Exception {
 
         ComboBoxData();
         TablePay();
         DataGrid.setVisible(false);
-        DataCreate  = new Calendar(DataGetCard);
+        new Calendar(DataGetCard);
         EditMoney();
         EditCard();
+        OnClickTablePrinter();
+
+
+
     }
 
 
@@ -109,35 +111,28 @@ public class PayOrderController {
                 change -> {
                     String newText = change.getControlNewText() ;
                     if (validDoubleText.matcher(newText).matches()) {
-                        return change ;
-                    } else return null ;
-                });
+                 return change ; } else return null; });
 
         SumPayFieldMoney.setTextFormatter(textFormatter);
-
         SumPayFieldMoney.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent ke) {
                 if(SumPayFieldMoney.getText().length()!=0){
                     OnKeyMoney();
-                }
-            }
+                } } });
 
-        });
         SumPayFieldMoney.setOnKeyReleased(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent ke) {
                 if(SumPayFieldMoney.getText().length()!=0){
                     OnKeyMoney();
-                }
-            }
-        });
+                } } });
 
     }
 
 
     void OnKeyMoney(){
-        Float ff;
+        Double ff;
         if (getVariantPayBox()=="Полная"){
-            ff = Float.valueOf(SumPayFieldMoney.getText())-list.getDolg();
+            ff = Double.valueOf(SumPayFieldMoney.getText())-list.getDolg();
             ErrorLableMoney.setVisible(false);
             addPayMoney.setVisible(true);
         }else {
@@ -149,12 +144,9 @@ public class PayOrderController {
             }else{
                 ErrorLableMoney.setVisible(false);
                 addPayMoney.setVisible(true);
-
             }
         }
-        DolgLableMoney.setText(String.format("%.2f", Float.valueOf(ff)));
-
-
+        DolgLableMoney.setText(String.format("%.2f", Double.valueOf(ff)));
     }
 
     public void EditCard() {
@@ -177,7 +169,6 @@ public class PayOrderController {
                     OnKeyCard();
                 }
             }
-
         });
         SumPayFieldCard.setOnKeyReleased(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent ke) {
@@ -191,16 +182,16 @@ public class PayOrderController {
 
     public void OnKeyCard(){
         //System.out.println(ff);
-        Float ff ;
+        Double ff ;
         if (getVariantPayBox()=="Полная"){
-            ff = Float.valueOf(SumPayFieldCard.getText())-list.getDolg();
+            ff = Double.valueOf(SumPayFieldCard.getText())-list.getDolg();
 
             ErrorLableCard.setVisible(false);
             addPayCard.setVisible(true);
         }else {
              ff = list.getDolg()-Float.valueOf(SumPayFieldCard.getText());
 
-            if (Float.valueOf(SumPayFieldCard.getText())>list.getDolg()){
+            if (Double.valueOf(SumPayFieldCard.getText())>list.getDolg()){
                 ErrorLableCard.setVisible(true);
                 ErrorLableCard.setText("Ошибка, сумма предоплаты больше задолженности");
                 addPayCard.setVisible(false);
@@ -209,7 +200,7 @@ public class PayOrderController {
                 addPayCard.setVisible(true);
             }
         }
-        DolgLableCard.setText(String.format("%.2f", Float.valueOf(ff)));
+        DolgLableCard.setText(String.format("%.2f", Double.valueOf(ff)));
 
     }
 
@@ -284,7 +275,6 @@ public class PayOrderController {
 
 
             if (getVariantPayBox()=="Полная"){
-              //  ToDate DataCo=    new ToDate().getToDay()
                 SumPayFieldCard.setVisible(false);
                 DolgLableCard.setVisible(false);
                 LableCard1.setVisible(false);
@@ -314,19 +304,7 @@ public class PayOrderController {
         VariantPayBox.setItems(variant);
         VariantPayBox.getSelectionModel().selectFirst();
 
-
-        ObservableList<PayMent> list = null;
-        try {
-
-            list = PayMentDB.selectOrderPrinter();
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        PayMentBox.setItems(list);
+        PayMentBox.setItems( List.PayMent());
         PayMentBox.getSelectionModel().selectFirst();
 
     }
@@ -356,25 +334,54 @@ public class PayOrderController {
         PayColumnSumPay.setCellValueFactory(cellData -> cellData.getValue().sumPayProperty().asObject());
         PayColumnNamePayMent.setCellValueFactory(cellData -> cellData.getValue().namePaymentProperty());
         PayColumnNamberCard.setCellValueFactory(cellData -> cellData.getValue().namberCardProperty());
-
         PayColumnTextPay.setCellValueFactory(cellData -> cellData.getValue().textPayProperty());
-
-
     }
+
+
+    public void OnClickTablePrinter() {
+
+        PayTable.setRowFactory(
+                new Callback<TableView<PayOrder>, TableRow<PayOrder>>() {
+                    @Override
+                    public TableRow<PayOrder> call(TableView<PayOrder> tableView) {
+                        final TableRow<PayOrder> row = new TableRow<>();
+                        final ContextMenu rowMenu = new ContextMenu();
+                        MenuItem removeItem = new MenuItem("Delete");
+
+                        removeItem.setOnAction(new EventHandler<ActionEvent>() {
+
+                            @Override
+                            public void handle(ActionEvent event) {
+
+                                try {
+                                    DeletePay();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        row.setOnMouseClicked(event -> {
+                            if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                                //
+                            }
+                        });
+                        rowMenu.getItems().addAll(removeItem);
+                        row.contextMenuProperty().bind(
+                                Bindings.when(Bindings.isNotNull(row.itemProperty()))
+                                        .then(rowMenu)
+                                        .otherwise((ContextMenu) null));
+                        return row;
+                    }
+                });
+    }
+
 
     public  void TableUpdata(Integer idOrder) {
         //Get all Employees information
         ObservableList<PayOrder> payOrderList = null;
         try {
-
             payOrderList = PayOrderDB.selectOrderPrinter(idOrder);
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        } catch (ClassNotFoundException e) { e.printStackTrace(); } catch (Exception e) { e.printStackTrace(); }
         PayTable.setItems(payOrderList);
     }
 
@@ -384,21 +391,17 @@ public class PayOrderController {
 
 
     public void CloseForm(ActionEvent actionEvent) {
-
+        stagePay.close();
     }
 
     public void addPayCard(ActionEvent actionEvent) throws Exception {
 
-       Float sum_pay;
+        Double sum_pay;
         if (getVariantPayBox()=="Полная"){
-            sum_pay = Float.valueOf(list.getDolg());
-
-
+            sum_pay = Double.valueOf(list.getDolg());
         }else {
-            sum_pay = Float.valueOf(SumPayFieldCard.getText());
+            sum_pay = Double.valueOf(SumPayFieldCard.getText());
         }
-
-
         PayOrderDB.insertOrderPrinter(
                 idOrder,
                 getPayMentId(),
@@ -411,13 +414,13 @@ public class PayOrderController {
     }
 
     public void addPayMoney(ActionEvent actionEvent) throws Exception {
-        Float sum_pay;
+        Double sum_pay;
         if (getVariantPayBox()=="Полная"){
-            sum_pay = Float.valueOf(list.getDolg());
+            sum_pay = Double.valueOf(list.getDolg());
 
 
         }else {
-            sum_pay = Float.valueOf(SumPayFieldMoney.getText());
+            sum_pay = Double.valueOf(SumPayFieldMoney.getText());
         }
 
 
@@ -430,12 +433,14 @@ public class PayOrderController {
         DataUpdate();
     }
 
-    public void DeletePay(ActionEvent actionEvent) throws Exception {
+    public void DeletePay() throws Exception {
         Integer idPay = PayTable.getSelectionModel().getSelectedItem().getIdPay();
 
         PayOrderDB.delete(idPay);
         TableUpdata(idOrder);
         DataUpdate();
     }
-
+    public void setClose(Stage stage) {
+        this.stagePay = stage;
+    }
 }

@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class PayMentDB {
 
     public static ObservableList<PayMent> selectOrderPrinter() throws Exception {
-        String selectStmt = "SELECT * FROM order_payment;";
+        String selectStmt = "SELECT * FROM payment;";
 
         try {
             ResultSet result = ExecuteQuery.getExecuteQuery(selectStmt);
@@ -48,7 +48,7 @@ public class PayMentDB {
 
 
     public static ObservableList<PayMent> selectOrderPrinter2() throws Exception {
-        String selectStmt = "SELECT * FROM order_payment;";
+        String selectStmt = "SELECT * FROM payment;";
         ResultSet result = ExecuteQuery.getExecuteQuery(selectStmt);
         ObservableList<PayMent> printerList ;
         try {

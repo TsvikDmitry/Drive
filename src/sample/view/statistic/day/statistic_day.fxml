@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Statisic.Today.StatisticDayController">
+   <children>
+      <VBox fillWidth="false" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane>
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.0" minWidth="120.0" prefWidth="146.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="54.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="303.0" minWidth="0.0" prefWidth="72.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="74.0" prefWidth="74.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="70.0" prefWidth="70.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="120.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="Касса за день:" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lbCash" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="172.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="238.0" text="Оплата наличными:" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lbPayMony" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="263.0" text="Не оплачено:" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lbPayNot" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="166.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="238.0" text="Оплата по безналу:" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lbPayCard" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="172.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="Приход наличными:" GridPane.rowIndex="10">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lbDealPayMony" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="172.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="Расход наличными:" GridPane.rowIndex="13">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lbDealRePayMony" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="172.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="248.0" text="Оплата долговых заказов" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="Выплата ЗП:" GridPane.rowIndex="15">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lbSalaryRepayMony" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="172.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="15">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="26.0" prefWidth="184.0" text="Баланс наличных:" textAlignment="RIGHT" wrapText="true" GridPane.rowIndex="19">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="26.0" prefWidth="184.0" text="Наличных в кассе:" textAlignment="RIGHT" wrapText="true" GridPane.rowIndex="20">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="26.0" prefWidth="184.0" text="Разница:" textAlignment="RIGHT" wrapText="true" GridPane.rowIndex="21">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lbSumMony" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="166.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="19">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbSumCashMoney2" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="166.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="20">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbProfit" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="166.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="21">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="500" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="200" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="100" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="2" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="12">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="5" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="11">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="10" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="10">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="20" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="9">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="50" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="1" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="13">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="1" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="14">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="0,50" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="15">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="0,25" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="16">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="0,10" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="17">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="0,05" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="18">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tf500" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                  <TextField fx:id="tf200" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                  <TextField fx:id="tf100" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                  <TextField fx:id="tf50" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                  <TextField fx:id="tf20" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                  <TextField fx:id="tf10" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+                  <TextField fx:id="tf5" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="11" />
+                  <TextField fx:id="tf2" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="12" />
+                  <TextField fx:id="tf1" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="13" />
+                  <TextField fx:id="tf01" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="14" />
+                  <TextField fx:id="tf050" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="15" />
+                  <TextField fx:id="tf025" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="16" />
+                  <TextField fx:id="tf010" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="17" />
+                  <TextField fx:id="tf005" alignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="18" />
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="Приход по безналу:" GridPane.rowIndex="11">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lbDealPayCard" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="172.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="Расход по безналу:" GridPane.rowIndex="14">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lbDealRePayCard" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="172.0" GridPane.columnIndex="1" GridPane.rowIndex="14">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbPayMonyLastDay" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="166.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="238.0" text="Оплата наличными:" GridPane.rowIndex="7">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="238.0" text="Оплата по безналу:" GridPane.rowIndex="8">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lbPayCardLastDay" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="166.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="26.0" prefWidth="184.0" text="Баланс по безналу:" textAlignment="RIGHT" wrapText="true" GridPane.rowIndex="23">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lbSumCard" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="166.0" GridPane.columnIndex="1" GridPane.rowIndex="23">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="248.0" text="Итог дня" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="2">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="248.0" text="Приход" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="9">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="248.0" text="Расходы" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="12">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="249.0" text="Подсчет наличных" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="17">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="26.0" prefWidth="184.0" text="Размен:" textAlignment="RIGHT" wrapText="true" GridPane.rowIndex="18">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="tfChange" alignment="CENTER" text="600" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" text="Итог:" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="19">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbSumCashMoney1" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="278.0" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="19">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SaveBanknot" prefHeight="30.0" prefWidth="90.0" text="Сохранить ">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#Cancel" prefHeight="30.0" prefWidth="89.0" text="Отменить">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

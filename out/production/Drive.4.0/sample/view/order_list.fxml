@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="OrderListView" prefHeight="800.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.OrderList.OrderListController">
+    <children>
+      <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <SplitPane dividerPositions="0.6192384769539078" focusTraversable="true" orientation="VERTICAL" prefHeight="300.0" prefWidth="600.0" HBox.hgrow="ALWAYS">
+              <items>
+                  <AnchorPane minWidth="0.0" prefHeight="649.0" prefWidth="424.0" styleClass="background">
+                      <children>
+                        <VBox prefHeight="734.0" prefWidth="475.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TabPane fx:id="TabOrder" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                                <tabs>
+                                  <Tab text="Текущий день">
+                                    <content>
+                                        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <children>
+                                                <HBox prefHeight="60.0" prefWidth="818.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="60.0" prefWidth="142.0">
+                                                         <children>
+                                                            <TextField fx:id="tfOrderToDay" promptText="Номер заказа">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                               </VBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="35.0" prefWidth="140.0" HBox.hgrow="ALWAYS" />
+                                                      <VBox alignment="CENTER" prefHeight="60.0" prefWidth="142.0" />
+                                                   </children>
+                                                </HBox>
+                                                <VBox VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <fx:include fx:id="tableListTodayView" source="order_list/table_order_list.fxml" />
+                                                   </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </content>
+                                  </Tab>
+                                    <Tab text="Неоплаченные заказы">
+                                        <content>
+                                        </content>
+                                       <content>
+                                          <VBox>
+                                             <children>
+                                                <HBox prefHeight="60.0" prefWidth="818.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="60.0" prefWidth="142.0">
+                                                         <children>
+                                                            <TextField fx:id="tfOrderDebt" promptText="Номер заказа">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                               </VBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="35.0" prefWidth="140.0" HBox.hgrow="ALWAYS" />
+                                                      <VBox alignment="CENTER" prefHeight="60.0" prefWidth="142.0" />
+                                                   </children>
+                                                </HBox>
+                                                <VBox VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <TabPane fx:id="TabOrderDebt" tabClosingPolicy="UNAVAILABLE">
+                                                        <tabs>
+                                                          <Tab text="Все заказы">
+                                                               <content>
+                                                                  <VBox>
+                                                                     <children>
+                                                                        <fx:include fx:id="tableListDebt" source="order_list/table_order_list.fxml" />
+                                                                     </children>
+                                                                  </VBox>
+                                                               </content>
+                                                          </Tab>
+                                                          <Tab text="Оплаченные сегодня">
+                                                            <content>
+                                                                <VBox>
+                                                                    <children>
+                                                                        <fx:include fx:id="tableListDebtPay" source="order_list/table_order_list.fxml" />
+                                                                    </children>
+                                                                </VBox>
+                                                            </content>
+                                                          </Tab>
+                                                        </tabs>
+                                                      </TabPane>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                    </Tab>
+                                  <Tab text="Все заказы">
+                                    <content>
+                                        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <children>
+                                                <HBox prefHeight="60.0" prefWidth="818.0">
+                                                    <children>
+                                                        <VBox alignment="CENTER" prefHeight="60.0" prefWidth="142.0">
+                                                            <children>
+                                                                <TextField fx:id="tfOrderAllDay" promptText="Номер заказа">
+                                                                    <VBox.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                    </VBox.margin>
+                                                                </TextField>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                                <VBox VBox.vgrow="ALWAYS">
+                                                    <children>
+                                                        <fx:include fx:id="tableListAllDayView" source="order_list/table_order_list.fxml" />
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </content>
+                                  </Tab>
+
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </VBox>
+                      </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="649.0" prefWidth="434.0" styleClass="background">
+                      <children>
+                        <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <VBox HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                                        <tabs>
+                                        <Tab closable="false" text="Все заказы">
+                                            <content>
+                                                <fx:include fx:id="tableAllView" source="create_order/table_order/table_all.fxml" />
+                                            </content>
+                                        </Tab>
+                                        <Tab closable="false" text="Принтеры">
+                                            <content>
+                                                <fx:include fx:id="tablePrinterView" source="create_order/table_order/table_printer.fxml" />
+                                            </content>
+                                        </Tab>
+                                        <Tab closable="false" text="Плоттер">
+                                            <content>
+                                                <fx:include fx:id="tablePlotterView" source="create_order/table_order/table_plotter.fxml" />
+                                            </content>
+                                        </Tab>
+                                        <Tab closable="false" text="Брошюровка">
+                                            <content>
+                                                <fx:include fx:id="tableBindingView" source="create_order/table_order/table_binding.fxml" />
+                                            </content>
+                                        </Tab>
+                                        <Tab closable="false" text="Услоги">
+                                            <content>
+                                                <fx:include fx:id="tableServiceView" source="create_order/table_order/table_service.fxml" />
+                                            </content>
+                                        </Tab>
+                                            <Tab closable="false" text="Товары">
+                                                <content>
+                                                    <fx:include fx:id="tableProductView" source="create_order/table_order/table_product.fxml" />
+                                                </content>
+                                       </Tab>
+                                        </tabs>
+                                    </TabPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                      </children>
+                  </AnchorPane>
+              </items>
+          </SplitPane>
+            <VBox maxWidth="300.0" minWidth="300.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="58.0" prefWidth="296.0">
+                     <children>
+                      <Button mnemonicParsing="false" onAction="#NewOrders" prefHeight="30.0" prefWidth="151.0" text="Новый заказ" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="2.0" top="3.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label alignment="CENTER" prefHeight="42.0" prefWidth="400.0" text="Данные заказа:" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <GridPane maxWidth="350.0" minWidth="350.0" prefWidth="350.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="145.0" minWidth="126.0" prefWidth="130.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="210.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Номер заказа:">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="lbNamberOrder" styleClass="label-bright" text="" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Сумма оплаты:" GridPane.rowIndex="8">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Менеджер:" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Дата создания :" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="22.0048828125" layoutY="150.0" text="Дата выполнения:" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="lbSumPay" styleClass="label-bright" text="" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbManager" styleClass="label-bright" text="" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbCutter" styleClass="label-bright" text="" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbDataCreat" styleClass="label-bright" text="" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Клиент:" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="lbClient" styleClass="label-bright" text="" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Печатник:" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Резчик" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="lbSumOrder" styleClass="label-bright" text="" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbStatusPay" styleClass="label-bright" text="" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbDataEnd" styleClass="label-bright" text="" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Сумма" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Сумма оплаты:" GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="lbPrinting" styleClass="label-bright" text="" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                    </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                </GridPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+    </children></AnchorPane>

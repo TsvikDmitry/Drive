@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="644.0" prefWidth="976.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ViewAdd.ClientViewController">
+   <children>
+      <HBox prefHeight="60.0" prefWidth="200.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <TextField />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox prefHeight="584.0" prefWidth="965.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <TableView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn prefWidth="75.0" text="ID" />
+                <TableColumn prefWidth="75.0" text="Имя" />
+                  <TableColumn prefWidth="90.0" text="Пароль" />
+                  <TableColumn prefWidth="90.0" text="Ставка" />
+                  <TableColumn prefWidth="74.0" text="Менеджер" />
+                  <TableColumn prefWidth="66.0" text="Печать" />
+                  <TableColumn prefWidth="64.0" text="Плоттер" />
+                  <TableColumn prefWidth="63.0" text="Резчик" />
+                  <TableColumn prefWidth="75.0" text="Резчик(ед)" />
+                  <TableColumn prefWidth="75.0" text="Товары" />
+                  <TableColumn prefWidth="82.0" text="Брошуровка" />
+              </columns>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

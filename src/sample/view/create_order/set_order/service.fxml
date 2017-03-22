@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -67,6 +68,7 @@
                                     <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
                                     <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
                                     <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="ALWAYS" />
                                 </rowConstraints>
                                  <children>
                                     <Label fx:id="lbServiceItemName" prefHeight="20.0" prefWidth="262.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1">
@@ -86,12 +88,12 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <Label fx:id="lbSumOne" alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="106.0" text="8 грн." textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <Label fx:id="lbSumOne" alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="106.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="tfCount" alignment="CENTER" prefHeight="25.0" prefWidth="56.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <TextField fx:id="tfCount" alignment="CENTER" prefHeight="25.0" prefWidth="56.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                        <GridPane.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </GridPane.margin>
@@ -104,7 +106,7 @@
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label fx:id="lbSumAll" alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="106.0" text="16 грн." textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <Label fx:id="lbSumAll" alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="106.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
@@ -119,6 +121,11 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
+                                    <TextArea fx:id="tfTextDesc" prefHeight="42.0" prefWidth="242.0" promptText="Описание заказа" GridPane.columnSpan="4" GridPane.rowIndex="5">
+                                       <GridPane.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </GridPane.margin>
+                                    </TextArea>
                                  </children>
                               </GridPane>
                            </children>

@@ -13,34 +13,34 @@ import java.util.Date;
 import java.util.Locale;
 
 public class OrderListDB {
-    public static String selectStmt1 = "select id_orders,\n" +
-            "\tord.data_create, ord.time_create, ord.data_end, ord.time_end,\n" +
-            "\tcase  when brak <= 0 then 'Брак' \n" +
+    public static String selectStmt1 = "select *, \n" +
+            "\tcase  when order_sum <= 0 then 'Брак' \n" +
             "\telse case  when pay_sum = 0 then 'Не оплачен' \n" +
             "\telse case when order_sum= pay_sum then 'Оплачено' \n" +
             "\telse case when  order_sum>pay_sum then 'Задолженность' \n" +
             "\telse  case when  order_sum<pay_sum then 'Переплата' end  end end end end as status_pay,\n" +
-            "    plotter,printer, order_sum,pay_sum,\n" +
-            "\torder_sum-pay_sum as dolg, \n" +
-            "    ord.name_status_order, ord.id_order_status, ord.text_description\n" +
+            "\torder_sum-pay_sum as dolg\n" +
+            "from (select id_orders,\n" +
+            "\tord.data_create, ord.time_create, ord.data_end, ord.time_end, \n" +
+            "    ord.name_status_order, ord.id_order_status, ord.text_description,\n" +
+            "\tplotter+printer+service+binding as order_sum, pay_sum,\n" +
+            "    plotter,printer,service,binding\n" +
             "from (select id_orders, \n" +
             "\tords.data_create, ords.time_create, ords.data_end, ords.time_end,\n" +
             "\tIFNULL((select sum(order_plotter.sum_all) from order_plotter  where order_plotter.id_orders=ords.id_orders ),0) as plotter,\n" +
             "\tIFNULL((select sum(order_printer.sum_all) from order_printer  where order_printer.id_orders=ords.id_orders),0) as printer,\n" +
-            "    \tIFNULL((select sum(order_dop.sum_all) from order_dop  where order_dop.id_orders=ords.id_orders),0) as dop,\n" +
-            "\tIFNULL((select sum(order_plotter.sum_all) from order_plotter  where order_plotter.id_orders=ords.id_orders ),0)+\n" +
-            "    IFNULL((select sum(order_printer.sum_all) from order_printer  where order_printer.id_orders=ords.id_orders),0) as order_sum,\n" +
+            "\tIFNULL((select sum(order_service.sum_all) from order_service  where order_service.id_orders=ords.id_orders),0) as service,\n" +
+            "\tIFNULL((select sum(order_binding.sum_all) from order_binding  where order_binding.id_orders=ords.id_orders),0) as binding,\n" +
             "\tIFNULL((select sum(order_pay.sum_pay) from order_pay  where order_pay.id_orders=ords.id_orders ),0) as pay_sum,\n" +
-            "\tIFNULL((select sum(order_printer.sum_all) from order_printer  where order_printer.id_orders=ords.id_orders),0)+\n" +
-            "    IFNULL((select sum(order_plotter.sum_all) from order_plotter  where  order_plotter.id_orders=ords.id_orders),0) as brak,\n" +
-            "    orst.name_status_order, ords.id_order_status, ords.text_description\n" +
+            "   orst.name_status_order, ords.id_order_status, ords.text_description\n" +
             "from orders ords \n" +
             "\tinner join order_status orst on orst.id_status_order=ords.id_order_status \n" ;
 
+
         public static ObservableList<OrderList> selectOrderPrinter() throws Exception {
              String selectStmt = selectStmt1+
-                    "group by id_orders order by id_orders desc) as ord ;\n";
-
+            "group by id_orders order by id_orders desc) as ord  ) as ord1;";
+          //  System.out.println(selectStmt);
             try {
                 ResultSet result = ExecuteQuery.getExecuteQuery(selectStmt);
 
@@ -125,7 +125,7 @@ public class OrderListDB {
     public static OrderList getOrders(Integer IdOrder) throws Exception {
         OrderList orders = new OrderList();
         String selectStmt = selectStmt1+
-                "    where id_orders="+IdOrder+" group by id_orders ) as ord ;\n";
+                "    where id_orders="+IdOrder+" group by id_orders ) as ord) as ord1 ;\n";
 
         try {
             ResultSet result = ExecuteQuery.getExecuteQuery(selectStmt);
@@ -171,17 +171,6 @@ public class OrderListDB {
 
 
 
-/*
-        public static void deleteOrderPrinter (Integer id_order_printer) throws SQLException, ClassNotFoundException {
-            String updateStmt = "DELETE FROM `order_printer` WHERE `id_order_printer`='"+id_order_printer+"'; ";
-
-            try {
-                ExecuteQuery.dbExecuteUpdate(updateStmt);
-            } catch (SQLException e) {
-                System.out.print("Error occurred while UPDATE Operation: " + e);
-                throw e;
-            }
-        }*/
 
 
 }

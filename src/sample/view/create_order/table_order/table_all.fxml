@@ -10,16 +10,26 @@
     <children>
         <VBox AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
             <children>
-              <TableView fx:id="OrderAllTable" VBox.vgrow="ALWAYS">
+              <TableView fx:id="TableOrderAll" VBox.vgrow="ALWAYS">
       
                       <columns>
-                          <TableColumn fx:id="PrintAllColumnId" maxWidth="80.0" minWidth="50.0" prefWidth="50.0" text="ID" />
-                          <TableColumn fx:id="PrintAllColumnText" maxWidth="250.0" minWidth="150.0" prefWidth="180.0" text="Название" />
-                          <TableColumn fx:id="PrintAllColumnNameFormat" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="Формат" />
-                          <TableColumn fx:id="PrintAllColumnCount" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="Кол-во" />
-                          <TableColumn fx:id="PrintAllColumnCostOne" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="Цена ед." />
-                          <TableColumn fx:id="PrintAllColumnCostAll" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="Цена" />
-                          <TableColumn fx:id="PrintAllColumnText2" maxWidth="299.0" minWidth="150.0" prefWidth="299.0" text="Описание" />
+                          <TableColumn fx:id="TableAllColumnIdOrders" maxWidth="80.0" minWidth="50.0" prefWidth="50.0" text="ID" />
+                          <TableColumn fx:id="TableAllColumnNameOrder" maxWidth="250.0" minWidth="150.0" prefWidth="180.0" text="Название" />
+                          <TableColumn fx:id="TableAllColumnCount" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="Кол-во" />
+                  <TableColumn fx:id="TablAllColumnSumOne1" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="Цена">
+                     <columns>
+                                <TableColumn fx:id="TableAllColumnSumOne" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="за одну" />
+                                <TableColumn fx:id="TableAllColumnSumAll" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="общая" />
+                     </columns>
+                  </TableColumn>
+                  <TableColumn fx:id="TablAll12" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="Цена закупки">
+                     <columns>
+                                <TableColumn fx:id="TableAllColumnPrimeSumOne" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="за одну" />
+                                <TableColumn fx:id="TableAllColumnPrimeSumAll" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="общая" />
+                     </columns>
+                  </TableColumn>
+                          <TableColumn fx:id="TableAllColumnProfit" maxWidth="299.0" minWidth="64.0" prefWidth="64.0" text="Прибыль" />
+                          <TableColumn fx:id="TableAllColumnTextDesc" maxWidth="534.0" minWidth="150.0" prefWidth="534.0" text="Описание" />
 
                       </columns>
                   </TableView>

@@ -5,7 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
-import sample.convection.TextFieldFormatter;
+import sample.controller.convection.TextFieldFormatter;
 import sample.model.binding.*;
 
 
@@ -63,6 +63,7 @@ public class BindingController {
 
         BindingFormat();
         BindingFormatUpdata();
+
         Cover();
         SpringSize();
         Spring();

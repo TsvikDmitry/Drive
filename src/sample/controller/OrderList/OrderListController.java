@@ -1,31 +1,20 @@
 package sample.controller.OrderList;
 
 import javafx.beans.binding.Bindings;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.util.Callback;
 import sample.Main;
+import sample.controller.CreateOrder.TableOrder.*;
 import sample.model.orders.OrderList;
 import sample.model.orders.OrderListDB;
-import sample.model.print.PrinterFormat;
-import sample.model.print.order.OrderPrinter;
 
-import javax.xml.crypto.Data;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.DecimalFormat;
-import java.time.LocalDateTime;
-
-import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
-
 
 public class OrderListController {
     private Main mainApp = new Main();
@@ -45,9 +34,14 @@ public class OrderListController {
     @FXML    public TableColumn<OrderList, Float>  DolgOrdersColumn;
 
     @FXML    public TableColumn<OrderList, String>  StatusPayColumn;
+/**/
+    @FXML    private TableOrderPrinter tablePrinterViewController;
+    @FXML    private TableOrderPlotter tablePlotterViewController;
+    @FXML    private TableOrderBinding tableBindingViewController;
+    @FXML    private TableOrderService tableServiceViewController;
+    @FXML    private TableOrderAll tableAllViewController;
 
-
-
+    private Integer saveIdOrders = 0;
     @FXML
     private void initialize () throws Exception {
 
@@ -58,11 +52,30 @@ public class OrderListController {
         OrdersTableClick();
         // TimeFinish(start);
 
+    }
+
+
+    public void UpdateOrdersData(Integer idOrder) throws Exception {
+
+        tablePrinterViewController.setIdOrder(idOrder);
+        tablePrinterViewController.UpdateTableData(idOrder);
+
+        tablePlotterViewController.setIdOrder(idOrder);
+        tablePlotterViewController.UpdateTableData(idOrder);
+
+        tableBindingViewController.setIdOrder(idOrder);
+        tableBindingViewController.UpdateTableData(idOrder);
+
+        tableServiceViewController.setIdOrder(idOrder);
+        tableServiceViewController.UpdateTableData(idOrder);
+
+        tableAllViewController.setIdOrder(idOrder);
+        tableAllViewController.UpdateTableData(idOrder);
 
     }
 
 
-
+/*
     private void formKeyPressed(java.awt.event.KeyEvent evt) {
         System.out.println("formKeyPressed(evt) - formKeyPressed");
 
@@ -85,7 +98,7 @@ public class OrderListController {
                 default:
             }
         }
-
+*/
     public void newOrder(ActionEvent actionEvent) throws IOException {
 
     }
@@ -120,7 +133,33 @@ public class OrderListController {
 
         OrdersTable.setItems(orderListTableList);
 
-        OrdersTable.getSelectionModel().select(0);
+        if(saveIdOrders==0){
+            OrdersTable.getSelectionModel().select(0);
+            if(OrdersTable.getItems().size()!=0) try { UpdateOrdersData(getIdOrders()); } catch (Exception e) { e.printStackTrace(); }
+
+        }else {
+            rowIdOrders(saveIdOrders);
+            if(OrdersTable.getItems().size()!=0) try { UpdateOrdersData(getIdOrders()); } catch (Exception e) { e.printStackTrace(); }
+        }
+    }
+
+    public void rowIdOrders(Integer id) {
+        //System.out.println("rowPaperDensity " + saveDensity);
+
+        //Integer save = Integer.parseInt(ColumEdit.getText().toString());
+        Integer count = OrdersTable.getItems().size();
+        if (count!=0) {
+            for (int i = 0; i <= count; i++) {
+                OrdersTable.getSelectionModel().select(i);
+                if (OrdersTable.getSelectionModel().getSelectedItem().getIdOrders() == id) {
+                    break;
+                }
+                if (count == i) {
+                    OrdersTable.getSelectionModel().select(0);
+                    break;
+                }
+            }
+        }
     }
 
     public void OrdersTableClick() {
@@ -135,44 +174,38 @@ public class OrderListController {
                         row.setOnMouseClicked(event -> {
                             if (event.getClickCount() == 1 && (! row.isEmpty()) ) {
 
+                                saveIdOrders = getIdOrders();
+                                try { UpdateOrdersData(getIdOrders()); } catch (Exception e) { e.printStackTrace(); }
+
 
                             }
                             if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
                                 mainApp.showAddItemsOrder(OrdersTable.getSelectionModel().getSelectedItem().getIdOrders());
                                 OrderListAllUpdata();
-                                try {
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
+                                try { } catch (Exception e) { e.printStackTrace(); }
                             }
                         });
-
 
                         removeItem.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent event) {
 
-                                try {
-                                    DeleteOredrs();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
+                                try { DeleteOredrs(); } catch (Exception e) { e.printStackTrace(); }
                             }
                         });
                         rowMenu.getItems().addAll( removeItem);
-                        row.contextMenuProperty().bind(
-                                Bindings.when(Bindings.isNotNull(row.itemProperty()))
-                                        .then(rowMenu)
-                                        .otherwise((ContextMenu)null));
+                        row.contextMenuProperty().bind(Bindings.when(Bindings.isNotNull(row.itemProperty())).then(rowMenu).otherwise((ContextMenu) null));
                         return row;
                     }
                 });
-
     }
 
     public Integer getIdOrders() {
-        Integer  txIdPrice =  OrdersTable.getSelectionModel().getSelectedItem().getIdOrders();
-        return txIdPrice;
+        Integer data = 0;
+        if(OrdersTable.getItems().size()!=0){
+            data =  OrdersTable.getSelectionModel().getSelectedItem().getIdOrders();
+        }
+        return data;
     }
 
 

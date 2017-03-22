@@ -51,10 +51,17 @@ public class TableOrderBinding {
     private void initialize() throws Exception {
 
         OrderBinding();
-        OrderBindingUpdata(idOrder);
-
+        //UpdateTableData(idOrder);
+        ColumnVisible(false);
     }
 
+    public void ColumnVisible(boolean status){
+        BindingOrderColumnPrimeCostCover.setVisible(status);
+        BindingOrderColumnPrimeCostSpringSize.setVisible(status);
+        BindingOrderColumnPrimeCostSumOne.setVisible(status);
+        BindingOrderColumnPrimeCostSumAll.setVisible(status);
+        BindingOrderColumnProfit.setVisible(status);
+    }
 
 
     public void OrderBinding() throws Exception {
@@ -65,7 +72,6 @@ public class TableOrderBinding {
         BindingOrderColumnCountCover.setCellValueFactory(cellData -> cellData.getValue().countCoverProperty().asObject());
         BindingOrderColumnCostCover.setCellValueFactory(cellData -> cellData.getValue().costCoverProperty().asObject());
         BindingOrderColumnPrimeCostCover.setCellValueFactory(cellData -> cellData.getValue().primeCostCoverProperty().asObject());
-
         BindingOrderColumnNameSpring.setCellValueFactory(cellData -> cellData.getValue().nameSpringProperty());
       //  BindingOrderColumnSheet.setCellValueFactory(cellData -> cellData.getValue().sheetProperty().asObject());
    //     BindingOrderColumnNameSpringSize.setCellValueFactory(cellData -> cellData.getValue().nameSpringSizeProperty());
@@ -92,7 +98,7 @@ public class TableOrderBinding {
     }
 
 
-    public  void OrderBindingUpdata(Integer idOrder) {
+    public  void UpdateTableData(Integer idOrder) {
         //Get all Employees information
         ObservableList<OrderBinding> tableList = null;
         try {

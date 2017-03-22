@@ -13,7 +13,7 @@ public class OrderPrinterDB {
 
     public static ObservableList<OrderPrinter> selectOrderPrinter(Integer IdOrder) throws Exception {
 
-        String selectStmt = "SELECT ordp.*, pp.name_printer, p.name_price, ff.name_format, dup.name_duplex, pap.name_paper, ordp.sum_one-ordp.prime_cost_sum_all as profit\n" +
+        String selectStmt = "SELECT ordp.*, pp.name_printer, p.name_price, ff.name_format, dup.name_duplex, pap.name_paper, ordp.sum_all-ordp.prime_cost_sum_all as profit\n" +
                 " FROM order_printer ordp\n" +
                 "inner join price p on p.id_price=ordp.id_price\n" +
                 "inner join format ff on ff.id_format=ordp.id_format\n" +
@@ -98,7 +98,7 @@ public class OrderPrinterDB {
     }
 
 
-    public static void deleteOrderPrinter (Integer id_order_printer) throws SQLException, ClassNotFoundException {
+    public static void delete (Integer id_order_printer) throws SQLException, ClassNotFoundException {
         String updateStmt = "DELETE FROM `order_printer` WHERE `id_order_printer`='"+id_order_printer+"'; ";
 
         try {

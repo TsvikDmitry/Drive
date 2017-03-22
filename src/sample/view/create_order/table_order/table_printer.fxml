@@ -28,13 +28,13 @@
                   </TableColumn>
                           <TableColumn fx:id="PrintOrderColumnCount" maxWidth="103.0" minWidth="50.0" prefWidth="76.0" text="Кол-во" />
                           <TableColumn fx:id="PrintOrderColumnNamePrice" maxWidth="80.0" minWidth="50.0" text="Прайс" />
-                  <TableColumn fx:id="PrintOrder" maxWidth="180.0" minWidth="9.0" prefWidth="129.0" text="Розница">
+                  <TableColumn fx:id="PrintOrder" maxWidth="180.0" minWidth="9.0" prefWidth="129.0" text="Цена">
                      <columns>
                                 <TableColumn fx:id="PrintOrderColumnCostOne" maxWidth="90.0" minWidth="1.0" prefWidth="60.0" text="ед." />
                                 <TableColumn fx:id="PrintOrderColumnCostAll" maxWidth="114.0" minWidth="0.0" prefWidth="58.0" text="общ." />
                      </columns>
                   </TableColumn>
-                  <TableColumn fx:id="PrintOrderColumnPrimeCostAll11" maxWidth="200.0" minWidth="9.0" prefWidth="129.0" text="Себестоимость">
+                  <TableColumn fx:id="PrintOrderColumnPrimeCostAll11" maxWidth="200.0" minWidth="9.0" prefWidth="129.0" text="Цена закупки">
                      <columns>
                         <TableColumn fx:id="PrintOrderColumnPrimeCostOne" maxWidth="84.0" minWidth="9.0" prefWidth="69.0" text="за одну" />
                         <TableColumn fx:id="PrintOrderColumnPrimeCostAll" maxWidth="79.0" minWidth="9.0" prefWidth="71.0" text="общая" />

@@ -109,7 +109,7 @@ public class OrderPlotterDB {
     }
 
 
-    public static void deleteOrderPlotter (Integer id_order_plotter) throws SQLException, ClassNotFoundException {
+    public static void delete(Integer id_order_plotter) throws SQLException, ClassNotFoundException {
         String updateStmt = "DELETE FROM `order_plotter` WHERE `id_order_plotter`='"+id_order_plotter+"'; ";
 
         try {

@@ -100,6 +100,8 @@
                                     <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="ALWAYS" />
                                     <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="ALWAYS" />
                                     <RowConstraints maxHeight="80.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="80.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="80.0" vgrow="ALWAYS" />
                                 </rowConstraints>
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Работа:" textAlignment="RIGHT" wrappingWidth="94.13671875" GridPane.rowIndex="3">
@@ -223,7 +225,7 @@
                                        <GridPane.margin>
                                           <Insets left="5.0" />
                                        </GridPane.margin></Label>
-                                    <TextArea fx:id="tfTextDesc" prefHeight="200.0" prefWidth="200.0" promptText="Описание заказа" GridPane.columnIndex="4" GridPane.rowIndex="5" GridPane.rowSpan="3">
+                                    <TextArea fx:id="tfTextDesc" prefHeight="200.0" prefWidth="200.0" promptText="Описание заказа" GridPane.columnSpan="5" GridPane.rowIndex="8" GridPane.rowSpan="3">
                                        <GridPane.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </GridPane.margin>

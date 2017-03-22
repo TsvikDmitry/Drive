@@ -5,11 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
-import sample.convection.TextFieldFormatter;
-import sample.model.binding.BindingCover;
-import sample.model.binding.BindingCoverDB;
-import sample.model.binding.BindingFormat;
-import sample.model.binding.BindingFormatDB;
+import sample.controller.convection.TextFieldFormatter;
 import sample.model.service.Service;
 import sample.model.service.ServiceDB;
 import sample.model.service.ServiceItems;
@@ -31,23 +27,28 @@ public class ServiceController {
     @FXML public Label lbServiceItemName;
     @FXML public Label lbSumOne;
     @FXML public Label lbSumAll;
-    @FXML public TextField tfCount;
 
+
+    @FXML public TextField tfCount;
+    @FXML public TextArea tfTextDesc;
+    public Integer saveIdService = 0;
+    public Integer saveIdServiceItems= 0;
 
     @FXML private void initialize () throws Exception {
 
         Service();
         ServiceUpdata();
+
         ServiceItems();
-        ServiceItemsUpdata();
         OnActionTextField();
+
     }
 
 
 
 
     /**********************************Format************************************************/
-    private void Service() {
+    public void Service() {
         ServiceColumnName.setCellValueFactory(cellData -> cellData.getValue().nameServiceProperty());
         ServiceTable.setRowFactory( tv -> {
             TableRow<Service> row = new TableRow<>();
@@ -62,11 +63,12 @@ public class ServiceController {
         });
     }
 
-    private void ServiceUpdata() {
+    public void ServiceUpdata() {
         ObservableList<Service> lazData = null;
         try {
 
             lazData = ServiceDB.select();
+            System.out.println(getIdService() +" "+getIdServiceItems());
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -76,10 +78,18 @@ public class ServiceController {
         ServiceTable.setItems(lazData);
         ServiceTable.getSelectionModel().select(0);
 
+      /*  if (saveIdService==0){
+            ServiceTable.getSelectionModel().select(0);
+
+            TablText();
+        }else{
+            rowServiceItems(saveIdService);
+            TablText();
+        }*/
     }
 
 
-    public void rowPrinter(Integer id) {
+    public void rowService(Integer id) {
 
         Integer count = ServiceTable.getItems().size();
         if (count!=0) {
@@ -98,14 +108,15 @@ public class ServiceController {
 
     /**********************************Cover************************************************/
 
-    private void ServiceItems() {
+    public void ServiceItems() {
         ServiceItemColumnName.setCellValueFactory(cellData -> cellData.getValue().nameItemsProperty());
         ServiceItemColumnCost.setCellValueFactory(cellData -> cellData.getValue().costItemsProperty().asObject());
         ServiceItemTable.setRowFactory( tv -> {
             TableRow<ServiceItems> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 1 && (! row.isEmpty()) ) {
-                    OrderText();
+                    TablText();
+                    saveIdServiceItems = getIdServiceItems();
 
                 }
             });
@@ -113,7 +124,7 @@ public class ServiceController {
         });
     }
 
-    private void ServiceItemsUpdata() {
+    public void ServiceItemsUpdata() {
         ObservableList<ServiceItems> lazData = null;
         try {
 
@@ -125,8 +136,13 @@ public class ServiceController {
             e.printStackTrace();
         }
         ServiceItemTable.setItems(lazData);
-        ServiceItemTable.getSelectionModel().select(0);
-        OrderText();
+        if (saveIdServiceItems==0){
+            ServiceItemTable.getSelectionModel().select(0);
+            TablText();
+        }else{
+            rowServiceItems(saveIdServiceItems);
+            TablText();
+        }
     }
 
     public void rowServiceItems(Integer id) {
@@ -135,7 +151,7 @@ public class ServiceController {
         if (count!=0) {
             for (int i = 0; i <= count; i++) {
                 ServiceItemTable.getSelectionModel().select(i);
-                if (ServiceItemTable.getSelectionModel().getSelectedItem().getIdService()== id) {
+                if (ServiceItemTable.getSelectionModel().getSelectedItem().getIdServiceItems()== id) {
                     break;
                 }
                 if (count == i) {
@@ -147,18 +163,28 @@ public class ServiceController {
     }
 
     /**********************************TextField************************************************/
-    void OrderText(){
+    void TablText(){
 
         lbServiceItemName.setText(""+ getNameItems());
-        lbSumOne.setText(""+getCostItems());
-        SumAll();
+        lbSumOne.setText(""+getSumOne());
+        ActiveText();
+    }
+    void ActiveText(){
+
+        lbSumAll.setText(""+getSumAll());
+
     }
 
-    void SumAll(){
-        lbSumAll.setText(String.format("%.2f", getSumOne()));
-    }
     /**********************************Get************************************************/
 
+    public String getNameOrder() {
+        String nameOrder = getNameService()+": "+getNameItems();
+        return nameOrder;
+    }
+
+    public Integer getCount() {
+        return Integer.valueOf(tfCount.getText().toString());
+    }
 
     public Integer getIdService() {
         Integer txIdPlotter = 0;
@@ -183,11 +209,22 @@ public class ServiceController {
         }
         return txIdPlotter;
     }
+    public Double getPrimeCostSumAll() {
+        Double txIdPlotter = getPrimeCostSumOne()*getCount();
 
-    public Double getPrimeCostItems() {
+        return txIdPlotter;
+    }
+    public Double getPrimeCostSumOne() {
         Double txIdPlotter = 0.0;
         if(ServiceItemTable.getItems().size()!=0){
             txIdPlotter = ServiceItemTable.getSelectionModel().getSelectedItem().getPrimeCostItems();
+        }
+        return txIdPlotter;
+    }
+    public String getNameService() {
+        String txIdPlotter = "";
+        if(ServiceItemTable.getItems().size()!=0){
+            txIdPlotter = ServiceItemTable.getSelectionModel().getSelectedItem().getNameService();
         }
         return txIdPlotter;
     }
@@ -199,13 +236,22 @@ public class ServiceController {
         return txIdPlotter;
     }
 
-
+    public Double getSumAll() {
+        Double txIdPlotter = 0.0;
+        if(tfCount.getText().length()!=0){
+            txIdPlotter = getCostItems()*getCount();
+        }
+        return txIdPlotter;
+    }
     public Double getSumOne() {
         Double txIdPlotter = 0.0;
         if(tfCount.getText().length()!=0){
-             txIdPlotter = getCostItems()*Double.valueOf(tfCount.getText().toString());
+             txIdPlotter = getCostItems();
         }
         return txIdPlotter;
+    }
+    public void setCount(String tfCount) {
+        this.tfCount.setText(tfCount);
     }
 
 
@@ -214,12 +260,18 @@ public class ServiceController {
         tfCount.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent ke) {
                 if (tfCount.getText().length() != 0) {
-                    SumAll();
+                    ActiveText();
                 }}});
         tfCount.setOnKeyReleased(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent ke) {
                 if (tfCount.getText().length() != 0) {
-                    SumAll();
+                    ActiveText();
                 }}});
     }
+
+
+    public String getTextDesc() {
+        return tfTextDesc.getText().toString();
+    }
+
 }

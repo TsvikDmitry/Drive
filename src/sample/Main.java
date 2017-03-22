@@ -9,6 +9,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.controller.CreateOrder.CreateOrderController;
 import sample.controller.PayOrder.PayOrderController;
+import sample.controller.convection.Timer;
 import sample.database.ConnectionDB;
 import sample.view.tabls.AddTabsController;
 
@@ -49,7 +50,7 @@ public class Main extends Application {
     }
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {
-        System.out.println("formKeyPressed(evt) - formKeyPressed");
+      //  System.out.println("formKeyPressed(evt) - formKeyPressed");
 
         switch (evt.getKeyCode()) {
 
@@ -92,18 +93,22 @@ public class Main extends Application {
 
     public void showAddItemsOrder(Integer id) {
         try {
+            Long start = Timer.TimeStart();
+           // System.out.println( ""+System.currentTimeMillis());
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/create_order/create_order.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Edit Person");
+            dialogStage.setTitle("Заказ № "+id);
             dialogStage.initModality(Modality.NONE);
             dialogStage.initOwner(primaryMain);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
             CreateOrderController controller = loader.getController();
             controller.onCreate(id);
+            Timer.TimeFinish(getClass().getName(),start);
             dialogStage.showAndWait();
 
 
@@ -141,7 +146,7 @@ public class Main extends Application {
     private void showOrderController() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/orderList/order_list.fxml"));
+            loader.setLocation(Main.class.getResource("view/order_list.fxml"));
             //loader.setLocation(Main.class.getResource("view/orderCreate/order_create.fxml"));
 
             AnchorPane ordersView = (AnchorPane) loader.load();

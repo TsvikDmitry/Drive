@@ -41,10 +41,15 @@ public class TableOrderPrinter {
 
         OrderPrinter();
 
+        ColumnVisible(false);
 
 
     }
-
+    public void ColumnVisible(boolean status){
+        PrintOrderColumnProfit.setVisible(status);
+        PrintOrderColumnPrimeCostOne.setVisible(status);
+        PrintOrderColumnPrimeCostAll.setVisible(status);
+    }
     public void OrderPrinter() throws Exception {
 
         PrintOrderColumnId.setCellValueFactory(cellData -> cellData.getValue().idOrdersProperty().asObject());
@@ -67,7 +72,7 @@ public class TableOrderPrinter {
     }
 
 
-    public  void OrderPrinterUpdata(Integer idOrder) {
+    public  void UpdateTableData(Integer idOrder) {
         //Get all Employees information
         ObservableList<OrderPrinter> orderPrintTableList = null;
         try {

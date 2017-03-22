@@ -6,12 +6,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
-import javafx.util.converter.DoubleStringConverter;
-import javafx.util.converter.IntegerStringConverter;
-import sample.convection.TextFieldFormatter;
+import sample.controller.convection.TextFieldFormatter;
+import sample.controller.convection.Timer;
 import sample.model.plotter.*;
 import java.sql.SQLException;
-import java.util.regex.Pattern;
 
 
 public class PlotterController {
@@ -58,21 +56,23 @@ public class PlotterController {
         @FXML public Label CostAreaLabel;
 
     @FXML private void initialize () throws Exception {
+        //Long start = Timer.TimeStart();
 
+        Plotter();
+        PlotterUpdata();
 
-            //Long start = TimeStart();
-            Plotter();
-            PlotterUpdata();
+            LengthField();
+            CountField();
+            CostMeterField();
+
             Paper();
             Density();
             Fill();
             Width();
             Format();
-            LengthField();
-            CountField();
-            CostMeterField();
-            //TimeFinish(start);
 
+
+         //Timer.TimeFinish(getClass().getName(),start);
 
 
     }
@@ -329,12 +329,10 @@ public class PlotterController {
             TableRow<PlotterPrice> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 1 && (! row.isEmpty()) ) {
-
                     saveWidth= getWidth();
-                    try { WidthClick();
+                    try {
+                        WidthClick();
                     } catch (SQLException e) {   e.printStackTrace();}
-
-
                 }
             });
             return row ;
@@ -369,6 +367,7 @@ public class PlotterController {
     public void WidthClick() throws SQLException {
         FormatUpdata();
         setCostMeter((getCostPaper()+getCostPrint()));
+        System.out.println((getCostPaper()+getCostPrint()));
         TextFilds();
     }
     public void rowWidth(Integer id) {
@@ -468,7 +467,7 @@ public class PlotterController {
 
     public void CostMeterField() {
 
-         CostMeterField.setTextFormatter(TextFieldFormatter.getItneger());
+         CostMeterField.setTextFormatter(TextFieldFormatter.getDouble());
 
         CostMeterField.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent ke) {
@@ -686,6 +685,7 @@ public class PlotterController {
 
 
         WidthField.setText(String.valueOf(getWidth()));
+        WidthField.setText(String.valueOf(getWidth()));
 
         AreaLabel.setText( Format( getArea()));
         LabelPlotter.setText(""+ getPlotterName()+" "+ getFill()+"%");
@@ -718,7 +718,7 @@ public class PlotterController {
     public  void TimeFinish(long start){
 
             long finish = System.currentTimeMillis() - start;
-            System.out.println("Time: "+finish);
+            System.out.println("Timer: "+finish);
             //return finish;
         }
 

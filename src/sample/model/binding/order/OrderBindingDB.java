@@ -136,7 +136,7 @@ public class OrderBindingDB {
         }
     }
 
-    public static void deleteOrderBinding(int id_order_binding) throws SQLException, ClassNotFoundException {
+    public static void delete(int id_order_binding) throws SQLException, ClassNotFoundException {
         String updateStmt = "DELETE FROM `order_binding` WHERE `id_order_binding`='"+id_order_binding+"'; ";
 
         try {

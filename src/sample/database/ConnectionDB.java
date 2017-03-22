@@ -9,7 +9,7 @@ import java.util.logging.Logger;
  */
 public class ConnectionDB {
 
-    private static final String connStr = "jdbc:mysql://localhost:3306/copydrive.v2?autoReconnect=true&useSSL=false";
+    private static final String connStr = "jdbc:mysql://localhost:3306/copydrive.v21?autoReconnect=true&useSSL=false";
     private static final String user = "root";
     private static final String password = "1";
 

@@ -20,7 +20,7 @@ public class ServiceItemsDB {
     public static ObservableList<ServiceItems> select(Integer idService) throws Exception {
 
         String selectStmt = selectStmt1 +" where ss.id_service="+idService+"";
-        System.out.println(selectStmt);
+       // System.out.println(selectStmt);
         try {
             ResultSet result = ExecuteQuery.getExecuteQuery(selectStmt);
 
@@ -42,7 +42,7 @@ public class ServiceItemsDB {
         while (result.next()) {
             ServiceItems data = new ServiceItems();
             data.setIdService(result.getInt("id_service"));
-            data.setIdServiceItems(result.getInt("id_service"));
+            data.setIdServiceItems(result.getInt("id_service_items"));
             data.setNameItems(result.getString("name_items"));
             data.setNameItemsEng(result.getString("name_items_eng"));
             data.setNameService(result.getString("name_service"));

@@ -17,38 +17,38 @@
                             <columns>
                                 <TableColumn fx:id="BindingOrderColumnNameCover" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Название" />
                                 <TableColumn fx:id="BindingOrderColumnCountCover" maxWidth="82.0" minWidth="31.0" prefWidth="50.0" text="Кол-во" />
-                                <TableColumn fx:id="BindingOrderColumnCostCover" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" text="Цена" />
-                                <TableColumn fx:id="BindingOrderColumnPrimeCostCover" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" text="Себ." />
+                                <TableColumn fx:id="BindingOrderColumnCostCover" maxWidth="60.0" minWidth="47.0" prefWidth="47.0" text="Цена" />
+                                <TableColumn fx:id="BindingOrderColumnPrimeCostCover" maxWidth="73.0" minWidth="47.0" prefWidth="49.0" text="Себ." visible="false" />
                             </columns>
                         </TableColumn>
                         <TableColumn maxWidth="426.0" minWidth="285.0" prefWidth="421.0" text="Пружина">
                             <columns>
-                                <TableColumn fx:id="BindingOrderColumnNameSpring" prefWidth="153.0" text="Тип" />
-                                <TableColumn fx:id="BindingOrderColumnCountSpringSize" maxWidth="82.0" minWidth="31.0" prefWidth="50.0" text="Кол-во" />
-                                <TableColumn fx:id="BindingOrderColumnCostSpringSize" maxWidth="60.0" minWidth="31.0" prefWidth="55.0" text="Цена" />
-                                <TableColumn fx:id="BindingOrderColumnPrimeCostSpringSize" maxWidth="65.0" minWidth="31.0" prefWidth="60.0" text="Себ." />
+                                <TableColumn fx:id="BindingOrderColumnNameSpring" prefWidth="139.0" text="Тип" />
+                                <TableColumn fx:id="BindingOrderColumnCountSpringSize" maxWidth="82.0" minWidth="31.0" prefWidth="49.0" text="Кол-во" />
+                                <TableColumn fx:id="BindingOrderColumnCostSpringSize" maxWidth="82.0" minWidth="31.0" prefWidth="49.0" text="Цена" />
+                                <TableColumn fx:id="BindingOrderColumnPrimeCostSpringSize" maxWidth="81.0" minWidth="31.0" prefWidth="56.0" text="Себ." />
                             </columns>
                         </TableColumn>
-                        <TableColumn maxWidth="187.0" minWidth="0.0" prefWidth="166.0" text="Сборка">
+                        <TableColumn maxWidth="187.0" minWidth="0.0" prefWidth="166.0" text="Сборка" visible="false">
                             <columns>
-                                <TableColumn fx:id="BindingOrderColumnCountWork" maxWidth="82.0" minWidth="31.0" prefWidth="59.0" text="Кол-во" />
-                                <TableColumn fx:id="BindingOrderColumnCostWork" maxWidth="118.0" minWidth="0.0" prefWidth="72.0" text="Цена" />
+                                <TableColumn fx:id="BindingOrderColumnCountWork" maxWidth="82.0" minWidth="31.0" prefWidth="46.0" text="Кол-во" />
+                                <TableColumn fx:id="BindingOrderColumnCostWork" maxWidth="118.0" minWidth="0.0" prefWidth="61.0" text="Цена" />
                             </columns></TableColumn>
-                        <TableColumn fx:id="BindingOrderColumnCount" maxWidth="118.0" minWidth="0.0" prefWidth="81.0" text="Кол-во" />
-                        <TableColumn  maxWidth="180.0" minWidth="9.0" prefWidth="38.0" text="Розница">
+                        <TableColumn fx:id="BindingOrderColumnCount" maxWidth="118.0" minWidth="0.0" prefWidth="66.0" text="Кол-во" />
+                        <TableColumn maxWidth="180.0" minWidth="9.0" prefWidth="155.0" text="Цена">
                             <columns>
-                                <TableColumn fx:id="BindingOrderColumnSumOne" maxWidth="130.0" minWidth="1.0" prefWidth="69.0" text="за одну" />
-                                <TableColumn fx:id="BindingOrderColumnSumAll" maxWidth="126.0" minWidth="0.0" prefWidth="71.0" text="общая" />
+                                <TableColumn fx:id="BindingOrderColumnSumOne" maxWidth="130.0" minWidth="1.0" prefWidth="61.0" text="за одну" />
+                                <TableColumn fx:id="BindingOrderColumnSumAll" maxWidth="126.0" minWidth="0.0" prefWidth="69.0" text="общая" />
                             </columns>
                         </TableColumn>
-                        <TableColumn maxWidth="200.0" minWidth="9.0" prefWidth="129.0" text="Себестоимость">
+                        <TableColumn maxWidth="200.0" minWidth="9.0" prefWidth="129.0" text="Цена закупки">
                             <columns>
-                                <TableColumn fx:id="BindingOrderColumnPrimeCostSumOne" maxWidth="84.0" minWidth="9.0" prefWidth="69.0" text="за одну" />
-                                <TableColumn fx:id="BindingOrderColumnPrimeCostSumAll" maxWidth="79.0" minWidth="9.0" prefWidth="71.0" text="общая" />
+                                <TableColumn fx:id="BindingOrderColumnPrimeCostSumOne" maxWidth="84.0" minWidth="9.0" prefWidth="60.0" text="за одну" visible="false" />
+                                <TableColumn fx:id="BindingOrderColumnPrimeCostSumAll" maxWidth="80.0" minWidth="9.0" prefWidth="68.0" text="общая" visible="false" />
                             </columns>
                         </TableColumn>
-                        <TableColumn fx:id="BindingOrderColumnProfit" maxWidth="240.0" minWidth="9.0" prefWidth="150.0" text="Прибыль" />
-                        <TableColumn fx:id="BindingOrderColumnText" maxWidth="600.0" minWidth="200.0" prefWidth="358.0" text="Text" />
+                        <TableColumn fx:id="BindingOrderColumnProfit" maxWidth="240.0" minWidth="9.0" prefWidth="65.0" text="Прибыль" visible="false" />
+                        <TableColumn fx:id="BindingOrderColumnText" maxWidth="600.0" minWidth="200.0" prefWidth="443.0" text="Text" />
                     </columns>
                 </TableView>
             </children>

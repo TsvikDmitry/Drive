@@ -52,9 +52,9 @@ public class PrinterController {
     private void initialize () throws Exception {
 
 
-       // Long start = TimeStart();
         Printer();
         PrinterUpdata();
+
         PrinterFormat();
         PrinterPrice();
 
@@ -65,7 +65,7 @@ public class PrinterController {
         PaperPrice();
         PaperDuplex();
 
-       // TimeFinish(start);
+
 
     }
 
@@ -80,14 +80,11 @@ public class PrinterController {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 1 && (! row.isEmpty()) ) {
 
-                    Long start = TimeStart();
-
                     try {
                         PrinterFormatUpdate();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    TimeFinish(start);
                 }
             });
             return row ;
@@ -769,18 +766,6 @@ public class PrinterController {
     }
 
 
-
-    public  long TimeStart() {
-
-        long start = System.currentTimeMillis();
-        return start;
-    }
-    public  void TimeFinish(long start){
-
-        long finish = System.currentTimeMillis() - start;
-        System.out.println("Time: "+finish);
-        //return finish;
-    }
 
 
     public Float getPrimeCostSumAll() {

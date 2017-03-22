@@ -2,7 +2,7 @@ package sample.model.pay;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import sample.convection.ToDate;
+import sample.controller.convection.ToDate;
 import sample.database.ExecuteQuery;
 
 import java.sql.ResultSet;

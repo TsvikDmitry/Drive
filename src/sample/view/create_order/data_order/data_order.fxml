@@ -13,8 +13,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<<<<<<< HEAD
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="320.0" prefHeight="900.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.CreateOrder.DataOrder.DataOrderController">
+=======
+<AnchorPane minWidth="320.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.controller.CreateOrder.DataOrder.DataOrderController">
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
    <children>
       <VBox layoutX="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>

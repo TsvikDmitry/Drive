@@ -6,10 +6,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import sample.controller.convection.TextFieldFormatter;
+<<<<<<< HEAD:src/sample/controller/CreateOrder/TabOrder/ServiceController.java
 import sample.model.create_order.service.Service;
 import sample.model.create_order.service.ServiceDB;
 import sample.model.create_order.service.ServiceItems;
 import sample.model.create_order.service.ServiceItemsDB;
+=======
+import sample.model.service.Service;
+import sample.model.service.ServiceDB;
+import sample.model.service.ServiceItems;
+import sample.model.service.ServiceItemsDB;
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca:src/sample/controller/CreateOrder/SetOrder/ServiceController.java
 
 /**
  * Created by Dima on 13.03.2017.
@@ -78,7 +85,10 @@ public class ServiceController {
         ServiceTable.setItems(lazData);
         ServiceTable.getSelectionModel().select(0);
 
+<<<<<<< HEAD:src/sample/controller/CreateOrder/TabOrder/ServiceController.java
 
+=======
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca:src/sample/controller/CreateOrder/SetOrder/ServiceController.java
       /*  if (saveIdService==0){
             ServiceTable.getSelectionModel().select(0);
 

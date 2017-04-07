@@ -4,8 +4,14 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+<<<<<<< HEAD
 import sample.model.list_order.OrderTableAll;
 import sample.model.list_order.OrderTableAllDB;
+=======
+import sample.model.OrderTableAll;
+import sample.model.OrderTableAllDB;
+import sample.model.binding.order.OrderBinding;
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 
 /**
  * Created by Dima on 19.02.2017.

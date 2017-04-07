@@ -1,6 +1,9 @@
 package sample.controller.CreateOrder.DataOrder;
 
+<<<<<<< HEAD
 import javafx.collections.ObservableList;
+=======
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -9,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import sample.Main;
+<<<<<<< HEAD
 import sample.controller.CreateOrder.TabOrder.PrinterController;
 import sample.controller.convection.Calendar;
 import sample.controller.convection.ComboBoxDate;
@@ -19,6 +23,12 @@ import sample.model.client.ClientDB;
 import sample.model.list_order.orders.*;
 import sample.model.people.People;
 import sample.model.people.PeopleDB;
+=======
+import sample.controller.convection.Calendar;
+import sample.controller.convection.ComboBoxDate;
+import sample.controller.convection.TimeConv;
+import sample.model.orders.*;
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 
 import java.time.LocalDate;
 

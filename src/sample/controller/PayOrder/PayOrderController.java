@@ -14,10 +14,16 @@ import javafx.util.Callback;
 import javafx.util.converter.DoubleStringConverter;
 import sample.controller.convection.Calendar;
 import sample.controller.convection.ComboBoxDate;
+<<<<<<< HEAD
 import sample.controller.convection.List;
 import sample.controller.convection.ToDate;
 import sample.model.list_order.orders.OrderList;
 import sample.model.list_order.orders.OrderListDB;
+=======
+import sample.controller.convection.ToDate;
+import sample.model.orders.OrderList;
+import sample.model.orders.OrderListDB;
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 import sample.model.pay.PayMent;
 import sample.model.pay.PayOrder;
 import sample.model.pay.PayOrderDB;

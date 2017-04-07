@@ -44,6 +44,7 @@ public class TableOrderPlotter {
 
         OrderPlotter();
        // UpdateTableData(idOrder);
+<<<<<<< HEAD
         ColumnVisible(false);
     }
 
@@ -51,9 +52,22 @@ public class TableOrderPlotter {
         PlotterOrderColumnPrimeCostSumOne.setVisible(status);
         PlotterOrderColumnPrimeCostSumAll.setVisible(status);
         PlotterOrderColumnProfit.setVisible(status);
+=======
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
+
+        ColumnVisible(false);
+    }
+
+<<<<<<< HEAD
+=======
+    public void ColumnVisible(boolean status){
+        PlotterOrderColumnPrimeCostSumOne.setVisible(status);
+        PlotterOrderColumnPrimeCostSumAll.setVisible(status);
+        PlotterOrderColumnProfit.setVisible(status);
 
     }
 
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 /*
             orderPlotter.setArea(result.getFloat("area"));
             orderPlotter.setCostMeter(result.getFloat("cost_meter"));

@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import sample.Main;
 import sample.controller.CreateOrder.DataOrder.DataOrderController;
+<<<<<<< HEAD
 import sample.controller.CreateOrder.TabOrder.*;
 import sample.controller.CreateOrder.TableOrder.*;
 import sample.controller.OrderList.OrderListController;
@@ -36,6 +37,24 @@ import sample.model.people.PeopleDB;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+=======
+import sample.controller.CreateOrder.SetOrder.BindingController;
+import sample.controller.CreateOrder.SetOrder.PlotterController;
+import sample.controller.CreateOrder.SetOrder.PrinterController;
+import sample.controller.CreateOrder.SetOrder.ServiceController;
+import sample.controller.CreateOrder.TableOrder.*;
+import sample.controller.OrderList.OrderListController;
+import sample.model.OrderTableAll;
+import sample.model.binding.order.OrderBinding;
+import sample.model.binding.order.OrderBindingDB;
+import sample.model.plotter.order.OrderPlotter;
+import sample.model.plotter.order.OrderPlotterDB;
+import sample.model.print.order.OrderPrinter;
+import sample.model.print.order.OrderPrinterDB;
+import sample.model.service.order.OrderService;
+import sample.model.service.order.OrderServiceDB;
+
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 import java.sql.SQLException;
 
 public class CreateOrderController extends DataOrderController
@@ -44,15 +63,20 @@ public class CreateOrderController extends DataOrderController
     @FXML    private PlotterController orderCreatePlotterController;
     @FXML    private BindingController orderCreateBindingController;
     @FXML    private ServiceController orderCreateServiceController;
+<<<<<<< HEAD
     @FXML    private ProductController orderCreateProductController;
 
     //@FXML    private DataOrderController dataOrderViewController;
+=======
+    @FXML    private DataOrderController dataOrderViewController;
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
     @FXML    private OrderListController orderListViewController;
 
     @FXML    private TableOrderPrinter tablePrinterViewController;
     @FXML    private TableOrderPlotter tablePlotterViewController;
     @FXML    private TableOrderBinding tableBindingViewController;
     @FXML    private TableOrderService tableServiceViewController;
+<<<<<<< HEAD
     @FXML    private TableOrderProduct tableProductViewController;
     @FXML    private TableOrderAll tableAllViewController;
     @FXML public ComboBox<Client>  ClientBox;
@@ -69,6 +93,22 @@ public class CreateOrderController extends DataOrderController
     private Stage stageOrder;
 
 
+=======
+    @FXML    private TableOrderAll tableAllViewController;
+
+    private Integer idOrder;
+    @FXML
+    TabPane TabOrder;
+    @FXML
+    TabPane TabTableOrder;
+
+    @FXML
+    CheckBox cbExpertMode;
+    Integer index;
+
+
+
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
     @FXML
     private void initialize() throws Exception {
 
@@ -76,6 +116,7 @@ public class CreateOrderController extends DataOrderController
         OnClickTablePlotter();
         OnClickTableBinding();
         OnClickTableService();
+<<<<<<< HEAD
         OnClickTableProduct();
         OnClickTableAll();
 
@@ -158,6 +199,27 @@ public class CreateOrderController extends DataOrderController
     }
 
 
+=======
+        OnClickAllService();
+        //TabOrder.getSelectionModel().select(3);
+
+    }
+
+    public void TabTableOrder() {
+        if (TabTableOrder.getSelectionModel().getSelectedIndex() != 0) {
+            TabOrder.getSelectionModel().select(TabTableOrder.getSelectionModel().getSelectedIndex() - 1);
+        }
+    }
+
+
+    public void TabOrder() {
+        if (TabTableOrder.getSelectionModel().getSelectedIndex() != 0) {
+            TabTableOrder.getSelectionModel().select(TabOrder.getSelectionModel().getSelectedIndex() + 1);
+        }
+    }
+
+
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
     public void onCreate(Integer idOrder) throws Exception {
         setIdOrder(idOrder);
 
@@ -175,6 +237,7 @@ public class CreateOrderController extends DataOrderController
         tableServiceViewController.setIdOrder(idOrder);
         tableServiceViewController.UpdateTableData(idOrder);
 
+<<<<<<< HEAD
         tableProductViewController.setIdOrder(idOrder);
         tableProductViewController.UpdateTableData(idOrder);
 
@@ -208,6 +271,10 @@ public class CreateOrderController extends DataOrderController
     public void CancelOrder(ActionEvent actionEvent) {
         UpdateOrderData();
         stageOrder.close();
+=======
+        tableAllViewController.setIdOrder(idOrder);
+        tableAllViewController.UpdateTableData(idOrder);
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 
     }
 
@@ -257,6 +324,7 @@ public class CreateOrderController extends DataOrderController
             tableBindingViewController.UpdateTableData(idOrder);
         }
         if (Tab == 3) {
+<<<<<<< HEAD
 
             OrderServiceDB.insertOrderService(idOrder, orderCreateServiceController.getNameOrder(),
                     orderCreateServiceController.getIdService(), orderCreateServiceController.getIdServiceItems(),
@@ -274,14 +342,27 @@ public class CreateOrderController extends DataOrderController
                     orderCreateProductController.getSumAll(), orderCreateProductController.getPrimeCostSumOne(),
                     orderCreateProductController.getPrimeCostSumAll(), orderCreateProductController.getTextDesc());
             tableProductViewController.UpdateTableData(idOrder);
+=======
+
+            OrderServiceDB.insertOrderService(idOrder, orderCreateServiceController.getNameOrder(),
+                    orderCreateServiceController.getIdService(), orderCreateServiceController.getIdServiceItems(),
+                    orderCreateServiceController.getCount(), orderCreateServiceController.getSumOne(),
+                    orderCreateServiceController.getSumAll(), orderCreateServiceController.getPrimeCostSumOne(),
+                    orderCreateServiceController.getPrimeCostSumAll(), orderCreateServiceController.getTextDesc());
+            tableServiceViewController.UpdateTableData(idOrder);
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 
         }
 
 
         try {
             tableAllViewController.UpdateTableData(idOrder);
+<<<<<<< HEAD
             UpdateOrderData();
             DateUpdate(idOrder);
+=======
+            dataOrderViewController.DateUpdate();
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -290,11 +371,47 @@ public class CreateOrderController extends DataOrderController
     }
 
 
+<<<<<<< HEAD
+=======
+    public void DeleteTableItemService() throws Exception {
+        OrderServiceDB.delete(tableServiceViewController.OrderServiceTable.getSelectionModel().getSelectedItem().getIdOrderService());
+        setIdOrder(idOrder);
+        tableServiceViewController.UpdateTableData(idOrder);
+        tableAllViewController.UpdateTableData(idOrder);
+        dataOrderViewController.DateUpdate();
+    }
+
+    public void DeleteTableItemPrinter() throws Exception {
+        OrderPrinterDB.delete(tablePrinterViewController.OrderPrintTable.getSelectionModel().getSelectedItem().getIdOrderPrinter());
+        tablePrinterViewController.UpdateTableData(idOrder);
+        tableAllViewController.UpdateTableData(idOrder);
+
+        dataOrderViewController.DateUpdate();
+    }
+
+    public void DeleteTableItemPlotter() throws Exception {
+        OrderPlotterDB.delete(tablePlotterViewController.OrderPlotterTable.getSelectionModel().getSelectedItem().getIdOrderPlotter());
+        tablePlotterViewController.UpdateTableData(idOrder);
+        tableAllViewController.UpdateTableData(idOrder);
+        dataOrderViewController.DateUpdate();
+    }
+
+    public void DeleteTableItemBinding() throws Exception {
+        OrderBindingDB.delete(tableBindingViewController.OrderBindingTable.getSelectionModel().getSelectedItem().getIdOrderBinging());
+        tableBindingViewController.UpdateTableData(idOrder);
+        tableAllViewController.UpdateTableData(idOrder);
+        dataOrderViewController.DateUpdate();
+    }
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 
 
     /***************************   Product    *****************************************/
 
+<<<<<<< HEAD
     public void OnClickTableProduct() {
+=======
+    public void OnClickTablePrinter() {
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 
         tableProductViewController.OrderProductTable.setRowFactory(
                 new Callback<TableView<OrderProduct>, TableRow<OrderProduct>>() {
@@ -303,6 +420,11 @@ public class CreateOrderController extends DataOrderController
                         final TableRow<OrderProduct> row = new TableRow<>();
                         final ContextMenu rowMenu = new ContextMenu();
                         MenuItem removeItem = new MenuItem("Delete");
+<<<<<<< HEAD
+=======
+
+                        removeItem.setOnAction(new EventHandler<ActionEvent>() {
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 
                         removeItem.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
@@ -316,9 +438,52 @@ public class CreateOrderController extends DataOrderController
                         });
                         row.setOnMouseClicked(event -> {
                             if (event.getClickCount() == 2 && (!row.isEmpty())) {
+<<<<<<< HEAD
                                 ActionProduct();
                             }
                         });
+=======
+                                ActionPrinter();
+                            }
+                        });
+                        rowMenu.getItems().addAll(removeItem);
+                        row.contextMenuProperty().bind(
+                                Bindings.when(Bindings.isNotNull(row.itemProperty()))
+                                        .then(rowMenu)
+                                        .otherwise((ContextMenu) null));
+                        return row;
+                    }
+                });
+    }
+
+    public void OnClickTablePlotter() {
+
+        tablePlotterViewController.OrderPlotterTable.setRowFactory(
+                new Callback<TableView<OrderPlotter>, TableRow<OrderPlotter>>() {
+                    @Override
+                    public TableRow<OrderPlotter> call(TableView<OrderPlotter> tableView) {
+                        final TableRow<OrderPlotter> row = new TableRow<>();
+                        final ContextMenu rowMenu = new ContextMenu();
+                        MenuItem removeItem = new MenuItem("Delete");
+
+                        removeItem.setOnAction(new EventHandler<ActionEvent>() {
+
+                            @Override
+                            public void handle(ActionEvent event) {
+
+                                try {
+                                    DeleteTableItemPlotter();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        row.setOnMouseClicked(event -> {
+                            if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                                ActionPlotter();
+                            }
+                        });
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
                         rowMenu.getItems().addAll(removeItem);
                         row.contextMenuProperty().bind(
                                 Bindings.when(Bindings.isNotNull(row.itemProperty()))
@@ -342,7 +507,11 @@ public class CreateOrderController extends DataOrderController
         orderCreateProductController.ProductItemsUpdata();
     }
 
+<<<<<<< HEAD
     /***********************    Printer  *********************************************/
+=======
+    public void OnClickTableBinding() {
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 
     public void OnClickTablePrinter() {
 
@@ -354,13 +523,15 @@ public class CreateOrderController extends DataOrderController
                         final ContextMenu rowMenu = new ContextMenu();
                         MenuItem removeItem = new MenuItem("Delete");
 
+<<<<<<< HEAD
+=======
                         removeItem.setOnAction(new EventHandler<ActionEvent>() {
 
                             @Override
                             public void handle(ActionEvent event) {
 
                                 try {
-                                    DeleteTableItemPrinter();
+                                    DeleteTableItemBinding();
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -368,7 +539,90 @@ public class CreateOrderController extends DataOrderController
                         });
                         row.setOnMouseClicked(event -> {
                             if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                                ActionBinding();
+                            }
+                        });
+                        rowMenu.getItems().addAll(removeItem);
+                        row.contextMenuProperty().bind(
+                                Bindings.when(Bindings.isNotNull(row.itemProperty()))
+                                        .then(rowMenu)
+                                        .otherwise((ContextMenu) null));
+                        return row;
+                    }
+                });
+    }
+
+    public void OnClickTableService() {
+
+        tableServiceViewController.OrderServiceTable.setRowFactory(
+                new Callback<TableView<OrderService>, TableRow<OrderService>>() {
+                    @Override
+                    public TableRow<OrderService> call(TableView<OrderService> tableView) {
+                        final TableRow<OrderService> row = new TableRow<>();
+                        final ContextMenu rowMenu = new ContextMenu();
+                        MenuItem removeItem = new MenuItem("Delete");
+
+                        removeItem.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                try {
+                                    DeleteTableItemService();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        row.setOnMouseClicked(event -> {
+                            if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                                ActionService();
+                            }
+                        });
+                        rowMenu.getItems().addAll(removeItem);
+                        row.contextMenuProperty().bind(
+                                Bindings.when(Bindings.isNotNull(row.itemProperty()))
+                                        .then(rowMenu)
+                                        .otherwise((ContextMenu) null));
+                        return row;
+                    }
+                });
+    }
+    public void OnClickAllService() {
+
+        tableAllViewController.TableOrderAll.setRowFactory(
+                new Callback<TableView<OrderTableAll>, TableRow<OrderTableAll>>() {
+                    @Override
+                    public TableRow<OrderTableAll> call(TableView<OrderTableAll> tableView) {
+                        final TableRow<OrderTableAll> row = new TableRow<>();
+                        final ContextMenu rowMenu = new ContextMenu();
+                        MenuItem removeItem = new MenuItem("Delete");
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
+                        removeItem.setOnAction(new EventHandler<ActionEvent>() {
+
+                            @Override
+                            public void handle(ActionEvent event) {
+
+                                try {
+<<<<<<< HEAD
+                                    DeleteTableItemPrinter();
+=======
+                                    DeleteTableItemAll();
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        row.setOnMouseClicked(event -> {
+                            if (event.getClickCount() == 2 && (!row.isEmpty())) {
+<<<<<<< HEAD
                                 ActionPrinter();
+=======
+                                try {
+                                    ActionAll();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
                             }
                         });
                         rowMenu.getItems().addAll(removeItem);
@@ -385,9 +639,79 @@ public class CreateOrderController extends DataOrderController
         tablePrinterViewController.UpdateTableData(idOrder);
         tableAllViewController.UpdateTableData(idOrder);
 
+<<<<<<< HEAD
         DateUpdate(idOrder);
     }
     public void ActionPrinter() {
+=======
+    void DeleteTableItemAll() throws Exception {
+
+        int month = tableAllViewController.getIdCategory();
+        String monthString;
+        switch (month) {
+            case 1:
+                OrderPrinterDB.delete(tableAllViewController.getIdOrderAll());
+                tablePrinterViewController.UpdateTableData(idOrder);
+                tableAllViewController.UpdateTableData(idOrder);
+                dataOrderViewController.DateUpdate();
+                break;
+            case 2:
+                OrderPlotterDB.delete(tableAllViewController.getIdOrderAll());
+                tablePlotterViewController.UpdateTableData(idOrder);
+                tableAllViewController.UpdateTableData(idOrder);
+                dataOrderViewController.DateUpdate();
+                break;
+            case 3:
+                OrderBindingDB.delete(tableAllViewController.getIdOrderAll());
+                tableBindingViewController.UpdateTableData(idOrder);
+                tableAllViewController.UpdateTableData(idOrder);
+                dataOrderViewController.DateUpdate();
+                break;
+            case 4:
+                OrderServiceDB.delete(tableAllViewController.getIdOrderAll());
+                tableServiceViewController.UpdateTableData(idOrder);
+                tableAllViewController.UpdateTableData(idOrder);
+                dataOrderViewController.DateUpdate();
+                break;
+            default:
+                break;
+        }
+
+
+    }
+
+    void ActionAll(){
+
+        int index = tableAllViewController.getIdCategory();
+        switch (index) {
+            case 1:
+                TabTableOrder.getSelectionModel().select(index);
+                break;
+            case 2:
+                TabTableOrder.getSelectionModel().select(index);
+                break;
+            case 3:
+                TabTableOrder.getSelectionModel().select(index);
+                break;
+            case 4:
+                TabTableOrder.getSelectionModel().select(index);
+                break;
+            default:
+                break;
+        }
+
+
+    }
+
+    void ActionService() {
+        orderCreateServiceController.setCount(String.valueOf(tableServiceViewController.OrderServiceTable.getSelectionModel().getSelectedItem().getCount()));
+        orderCreateServiceController.saveIdServiceItems = tableServiceViewController.getIdServiceItems();
+        orderCreateServiceController.rowService(tableServiceViewController.OrderServiceTable.getSelectionModel().getSelectedItem().getIdService());
+        orderCreateServiceController.ServiceItemsUpdata();
+    }
+
+    void ActionPrinter() {
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
         try {
             orderCreatePrinterController.rowPrinter(tablePrinterViewController.OrderPrintTable.getSelectionModel().getSelectedItem().getIdPrinter());
             orderCreatePrinterController.ColumEdit.setText(String.valueOf(tablePrinterViewController.orderCount()));
@@ -416,6 +740,7 @@ public class CreateOrderController extends DataOrderController
         }
     }
 
+<<<<<<< HEAD
     /************************   Plotter        ********************************************/
     public void OnClickTablePlotter() {
 
@@ -460,6 +785,9 @@ public class CreateOrderController extends DataOrderController
         DateUpdate(idOrder);
     }
     public void ActionPlotter() {
+=======
+    void ActionPlotter() {
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
         try {
             orderCreatePlotterController.rowPlotter(tablePlotterViewController.getIdPlotter());
             orderCreatePlotterController.rowPaper(tablePlotterViewController.getIdPaper());
@@ -485,6 +813,7 @@ public class CreateOrderController extends DataOrderController
         }
     }
 
+<<<<<<< HEAD
     /*********************       Binding     ***********************************************/
 
     public void OnClickTableBinding() {
@@ -533,6 +862,12 @@ public class CreateOrderController extends DataOrderController
         try {
             orderCreateBindingController.rowIdBindingFormat(tableBindingViewController.getIdBindingFormat());
             // System.out.println(tableBindingViewController.getIdBindingFormat());
+=======
+    void ActionBinding() {
+        try {
+            orderCreateBindingController.rowIdBindingFormat(tableBindingViewController.getIdBindingFormat());
+            System.out.println(tableBindingViewController.getIdBindingFormat());
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
             orderCreateBindingController.rowCover(tableBindingViewController.getIdBindingCover());
             orderCreateBindingController.saveCover2 = tableBindingViewController.getIdBindingCover();
             orderCreateBindingController.CoverUpdata();
@@ -557,6 +892,7 @@ public class CreateOrderController extends DataOrderController
         }
     }
 
+<<<<<<< HEAD
     /**************************    Service       ******************************************/
 
     public void DeleteTableItemService() throws Exception {
@@ -712,12 +1048,18 @@ public class CreateOrderController extends DataOrderController
     /*********************    All     ***********************************************/
 
     public void VisiblePrimeCostColumn(ActionEvent actionEvent) {
+=======
+    public void ActionExpertMode(ActionEvent actionEvent) {
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
         if (cbExpertMode.isSelected()) {
             tableBindingViewController.ColumnVisible(cbExpertMode.isSelected());
             tablePlotterViewController.ColumnVisible(cbExpertMode.isSelected());
             tablePrinterViewController.ColumnVisible(cbExpertMode.isSelected());
             tableServiceViewController.ColumnVisible(cbExpertMode.isSelected());
+<<<<<<< HEAD
             tableProductViewController.ColumnVisible(cbExpertMode.isSelected());
+=======
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
             tableAllViewController.ColumnVisible(cbExpertMode.isSelected());
 
         } else {
@@ -725,6 +1067,7 @@ public class CreateOrderController extends DataOrderController
             tablePlotterViewController.ColumnVisible(cbExpertMode.isSelected());
             tablePrinterViewController.ColumnVisible(cbExpertMode.isSelected());
             tableServiceViewController.ColumnVisible(cbExpertMode.isSelected());
+<<<<<<< HEAD
             tableProductViewController.ColumnVisible(cbExpertMode.isSelected());
             tableAllViewController.ColumnVisible(cbExpertMode.isSelected());
         }
@@ -770,5 +1113,10 @@ public class CreateOrderController extends DataOrderController
         return ClientBox.getSelectionModel().getSelectedItem().getIdClient();
     }
 
+=======
+            tableAllViewController.ColumnVisible(cbExpertMode.isSelected());
+        }
+    }
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 
 }

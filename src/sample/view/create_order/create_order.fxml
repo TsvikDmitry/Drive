@@ -3,9 +3,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<<<<<<< HEAD
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+=======
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -255,13 +258,20 @@
                <Separator orientation="VERTICAL" prefHeight="200.0" />
             <VBox alignment="TOP_CENTER" minHeight="300.0" prefHeight="300.0" HBox.hgrow="ALWAYS">
                <children>
+<<<<<<< HEAD
                   <TabPane fx:id="TabOrder" onMouseClicked="#TabOrder" prefHeight="602.0" prefWidth="781.0" VBox.vgrow="ALWAYS">
                      <tabs>
                         <Tab fx:id="TabPrinter" closable="false" text="Принтер">
+=======
+                  <TabPane fx:id="TabOrder" onMouseClicked="#TabOrder"  prefHeight="602.0" prefWidth="781.0" VBox.vgrow="ALWAYS">
+                     <tabs>
+                        <Tab fx:id="TabPrinter" closable="false"  text="Принтер">
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
                            <content>
                                <fx:include fx:id="orderCreatePrinter" source="tab_order/printer.fxml" />
                            </content>
                         </Tab>
+<<<<<<< HEAD
                          <Tab fx:id="TabPlotter" closable="false" text="Плоттер">
                              <content>
                                  <fx:include fx:id="orderCreatePlotter" source="tab_order/plotter.fxml" />
@@ -273,23 +283,41 @@
                              </content>
                          </Tab>
                          <Tab fx:id="TabService" closable="false" text="Услуги">
+=======
+                         <Tab fx:id="TabPlotter" closable="false"  text="Плоттер">
+                             <content>
+                                 <fx:include fx:id="orderCreatePlotter" source="set_order/plotter.fxml" />
+                             </content>
+                         </Tab>
+                         <Tab fx:id="TabBinding" closable="false"  text="Брошуровка">
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
                              <content>
                                  <fx:include fx:id="orderCreateService" source="tab_order/service.fxml" />
                              </content>
                          </Tab>
+<<<<<<< HEAD
                          <Tab fx:id="TabCreate" closable="false" text="Товары">
+=======
+                         <Tab fx:id="TabCreate" closable="false" text="Услуги/Товары">
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
                              <content>
                                  <fx:include fx:id="orderCreateProduct" source="tab_order/product.fxml" />
                              </content>
                          </Tab>
                      </tabs>
                   </TabPane>
+<<<<<<< HEAD
                      <Separator VBox.vgrow="ALWAYS" />
                      <HBox minHeight="45.0" prefHeight="45.0" prefWidth="775.0" VBox.vgrow="ALWAYS">
+=======
+                     <Separator />
+                     <HBox>
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
                         <VBox.margin>
                            <Insets />
                         </VBox.margin>
                         <children>
+<<<<<<< HEAD
                            <HBox alignment="CENTER">
                               <children>
                             <Button minHeight="30.0" minWidth="100.0" mnemonicParsing="false" onAction="#ButtonOrderPrintAdd" text="Добавить в заказ">
@@ -311,6 +339,14 @@
                                  <Button minHeight="30.0" minWidth="100.0" mnemonicParsing="false" onAction="#FileOpen" text="Открыть папку" />
                               </children>
                            </HBox>
+=======
+                      <Button minHeight="30.0" minWidth="100.0" mnemonicParsing="false" onAction="#ButtonOrderPrintAdd" text="Добавить в заказ">
+                              <HBox.margin>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </HBox.margin>
+                           </Button>
+                           <CheckBox fx:id="cbExpertMode" mnemonicParsing="false" onAction="#ActionExpertMode" prefHeight="40.0" prefWidth="115.0" text="Режим эксперта" />
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
             
                         </children>
                      </HBox>
@@ -321,7 +357,11 @@
          <Separator VBox.vgrow="ALWAYS" />
          <HBox minHeight="150.0" prefHeight="300.0" VBox.vgrow="ALWAYS">
             <children>
+<<<<<<< HEAD
              <TabPane fx:id="TabTableOrder" onMouseClicked="#TabTableOrder" HBox.hgrow="ALWAYS">
+=======
+             <TabPane fx:id="TabTableOrder"  onMouseClicked="#TabTableOrder" HBox.hgrow="ALWAYS">
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
                  <tabs>
                      <Tab closable="false" text="Все заказы">
                          <content>
@@ -333,7 +373,7 @@
                              <fx:include fx:id="tablePrinterView" source="table_order/table_printer.fxml" />
                          </content>
                      </Tab>
-                     <Tab closable="false" text="Плоттер">
+                     <Tab closable="false"  text="Плоттер">
                          <content>
                              <fx:include fx:id="tablePlotterView" source="table_order/table_plotter.fxml" />
                          </content>
@@ -343,6 +383,7 @@
                              <fx:include fx:id="tableBindingView" source="table_order/table_binding.fxml" />
                          </content>
                      </Tab>
+<<<<<<< HEAD
                      <Tab closable="false" text="Услоги">
                          <content>
                              <fx:include fx:id="tableServiceView" source="table_order/table_service.fxml" />
@@ -351,6 +392,11 @@
                      <Tab closable="false" text="Услоги/Товары">
                          <content>
                              <fx:include fx:id="tableProductView" source="table_order/table_product.fxml" />
+=======
+                     <Tab closable="false"  text="Услоги/Товары">
+                         <content>
+                             <fx:include fx:id="tableServiceView" source="table_order/table_service.fxml" />
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
                          </content>
                      </Tab>
                  </tabs>

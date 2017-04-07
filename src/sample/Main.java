@@ -9,8 +9,14 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.controller.CreateOrder.CreateOrderController;
 import sample.controller.PayOrder.PayOrderController;
+<<<<<<< HEAD
 import sample.controller.Statisic.Today.StatisticDayController;
 import sample.controller.convection.Timer;
+=======
+import sample.controller.convection.Timer;
+import sample.database.ConnectionDB;
+import sample.view.tabls.AddTabsController;
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 
 import java.io.IOException;
 
@@ -30,6 +36,23 @@ public class Main extends Application {
         Long start = Timer.TimeStart();
         showMainLayout();
         showOrderController();
+<<<<<<< HEAD
+=======
+        // showPersonEditDialog();
+        java.sql.Connection con = ConnectionDB.getInstance().getConnection();
+
+
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+                System.out.println("formKeyPressed(evt) ");
+            }
+        });
+    }
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {
+      //  System.out.println("formKeyPressed(evt) - formKeyPressed");
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 
 
 
@@ -65,18 +88,30 @@ public class Main extends Application {
             loader.setLocation(Main.class.getResource("view/create_order/create_order.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
+<<<<<<< HEAD
             stageOrder = new Stage();
             stageOrder.setTitle("Заказ № "+id);
             stageOrder.initModality(Modality.NONE);
             stageOrder.initOwner(primaryMain);
+=======
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Заказ № "+id);
+            dialogStage.initModality(Modality.NONE);
+            dialogStage.initOwner(primaryMain);
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
             Scene scene = new Scene(page);
             stageOrder.setScene(scene);
             CreateOrderController controller = loader.getController();
             controller.onCreate(id);
+<<<<<<< HEAD
             //controller.FileCreat(id);
             controller.setClose(stageOrder);
             Timer.TimeFinish(getClass().getName(),start);
             stageOrder.showAndWait();
+=======
+            Timer.TimeFinish(getClass().getName(),start);
+            dialogStage.showAndWait();
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
 
 
         } catch (IOException e) {
@@ -115,6 +150,11 @@ public class Main extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/order_list.fxml"));
+<<<<<<< HEAD
+=======
+            //loader.setLocation(Main.class.getResource("view/orderCreate/order_create.fxml"));
+
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca
             AnchorPane ordersView = (AnchorPane) loader.load();
             rootMain.setCenter(ordersView);
         } catch (IOException e) {

@@ -64,11 +64,19 @@
                                 </columnConstraints>
                                 <rowConstraints>
                                     <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+<<<<<<< HEAD:out/production/Drive.4.0/sample/view/create_order/tab_order/service.fxml
                                   <RowConstraints maxHeight="30.0" minHeight="25.0" prefHeight="30.0" vgrow="ALWAYS" />
                                     <RowConstraints maxHeight="30.0" minHeight="25.0" prefHeight="30.0" vgrow="ALWAYS" />
                                     <RowConstraints maxHeight="30.0" minHeight="25.0" prefHeight="30.0" vgrow="ALWAYS" />
                                     <RowConstraints maxHeight="30.0" minHeight="25.0" prefHeight="30.0" vgrow="ALWAYS" />
                                     <RowConstraints maxHeight="50.0" minHeight="25.0" prefHeight="50.0" vgrow="ALWAYS" />
+=======
+                                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="ALWAYS" />
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca:src/sample/view/create_order/set_order/service.fxml
                                 </rowConstraints>
                                  <children>
                                     <Label fx:id="lbServiceItemName" prefHeight="20.0" prefWidth="262.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1">

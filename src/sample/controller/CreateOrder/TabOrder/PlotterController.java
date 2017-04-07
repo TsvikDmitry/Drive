@@ -7,7 +7,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import sample.controller.convection.TextFieldFormatter;
+<<<<<<< HEAD:src/sample/controller/CreateOrder/TabOrder/PlotterController.java
 import sample.model.create_order.plotter.*;
+=======
+import sample.controller.convection.Timer;
+import sample.model.plotter.*;
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca:src/sample/controller/CreateOrder/SetOrder/PlotterController.java
 import java.sql.SQLException;
 
 
@@ -56,6 +61,7 @@ public class PlotterController {
 
     @FXML private void initialize () throws Exception {
         //Long start = Timer.TimeStart();
+<<<<<<< HEAD:src/sample/controller/CreateOrder/TabOrder/PlotterController.java
         Plotter();
         PlotterUpdata();
                 LengthField();
@@ -66,6 +72,26 @@ public class PlotterController {
                 Fill();
                 Width();
                 Format();
+=======
+
+        Plotter();
+        PlotterUpdata();
+
+            LengthField();
+            CountField();
+            CostMeterField();
+
+            Paper();
+            Density();
+            Fill();
+            Width();
+            Format();
+
+
+         //Timer.TimeFinish(getClass().getName(),start);
+
+
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca:src/sample/controller/CreateOrder/SetOrder/PlotterController.java
     }
         //*************************Printer ***********************************************//
         public void Plotter() {
@@ -269,7 +295,14 @@ public class PlotterController {
                     try {
                         WidthClick();
                     } catch (SQLException e) {   e.printStackTrace();}
+<<<<<<< HEAD:src/sample/controller/CreateOrder/TabOrder/PlotterController.java
                 } }); return row; });
+=======
+                }
+            });
+            return row ;
+        });
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca:src/sample/controller/CreateOrder/SetOrder/PlotterController.java
 
     }
 
@@ -293,7 +326,11 @@ public class PlotterController {
     public void WidthClick() throws SQLException {
         FormatUpdata();
         setCostMeter((getCostPaper()+getCostPrint()));
+<<<<<<< HEAD:src/sample/controller/CreateOrder/TabOrder/PlotterController.java
        // System.out.println((getCostPaper()+getCostPrint()));
+=======
+        System.out.println((getCostPaper()+getCostPrint()));
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca:src/sample/controller/CreateOrder/SetOrder/PlotterController.java
         TextFilds();
     }
     public void rowWidth(Integer id) {

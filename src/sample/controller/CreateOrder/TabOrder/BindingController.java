@@ -6,7 +6,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import sample.controller.convection.TextFieldFormatter;
+<<<<<<< HEAD:src/sample/controller/CreateOrder/TabOrder/BindingController.java
 import sample.model.create_order.binding.*;
+=======
+import sample.model.binding.*;
+>>>>>>> c3fcecab96c2b187c624c29846cb4881b4973fca:src/sample/controller/CreateOrder/SetOrder/BindingController.java
 
 
 public class BindingController {
@@ -62,6 +66,7 @@ public class BindingController {
     @FXML private void initialize () throws Exception {
         BindingFormat();
         BindingFormatUpdata();
+
         Cover();
         SpringSize();
         Spring();
